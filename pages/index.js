@@ -3,7 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import NBHead from '../components/head'
 import Lottie from "react-lottie";
-import animMain from "/public/animations/anim_main.json";
+import animMain from "/public/animations/anim_home.json";
 
 export default function Home() {
 
