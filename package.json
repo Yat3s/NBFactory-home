@@ -9,9 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "lottie-web": "^5.7.11",
     "next": "11.0.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-lottie": "^1.2.3",
+    "react-lottie-segments": "^1.4.9"
   },
   "devDependencies": {
     "eslint": "7.29.0",

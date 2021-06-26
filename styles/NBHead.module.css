@@ -1,0 +1,31 @@
+.main {
+    background: #042009;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+}
+
+.headContainer {
+    width: 80%;
+    max-width: 1080px;
+    padding: 12px 0;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menuContainer {
+    display: flex;
+    max-width: 1080px;
+}
+.menu:hover,
+.menu:focus,
+.menu:active {
+    color: #2ECC4F;
+}
+
+.menu {
+    font-weight: bold;
+    margin: 12px;
+}
