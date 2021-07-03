@@ -1,3 +1,4 @@
+
 .container {
   min-height: 100vh;
   display: flex;
@@ -66,6 +67,10 @@
   width: 100%;
   text-align: center;
   transform: translate(-50%, -50%);
+  animation: bounce;
+  animation-duration: 2s;
+  display: inline-block;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .homeAnimation {

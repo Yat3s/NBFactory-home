@@ -43,7 +43,7 @@ export default function Home() {
                       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <div className={styles.logoContainer}>
                           <Image className={styles.logoImage} src='/images/logo_frame.png' width={320} height={88}></Image>
-                          <span className={styles.logoText}>NB 超级工厂</span>
+                          <div className={styles.logoText}>NB 超级工厂</div>
                         </div>
 
                         <span style={{ color: '#FEFEFE', opacity: '0.6', marginTop: '8px', fontSize: '20px', }}>
@@ -76,7 +76,7 @@ export default function Home() {
                 <div className={styles.sectionContainer}>
 
                   <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <div style={{ width: 563 + 'px', height: 850 + 'px' }}>
+                    <div className='animate__animated animate__flip' style={{ width: 563 + 'px', height: 850 + 'px' }}>
                       <Image src='/images/img_mission.png' width={563} height={850}></Image>
                     </div>
 

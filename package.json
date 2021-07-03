@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@fullpage/react-fullpage": "^0.1.19",
+    "animate.css": "^4.1.1",
     "fullpage.js": "^3.1.2",
     "lottie-web": "^5.7.11",
     "next": "11.0.1",

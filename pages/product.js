@@ -5,6 +5,91 @@ import Image from 'next/image'
 import ReactFullpage from '@fullpage/react-fullpage';
 import styles from '../styles/Product.module.css'
 
+const productItemInterval = 100;
+
+function onLeave(origin, destination, direction) {
+    const leavingIndex = origin.index;
+    let reachingIndex = 0;
+    if (direction == 'down') {
+        reachingIndex = leavingIndex + 1;
+    } else {
+        reachingIndex = leavingIndex - 1;
+    }
+
+
+    console.log("Leaving section " + origin.index + ',' + direction + ', ' + reachingIndex);
+}
+
+function animateProduct(productListId, productImgId, productTitleId) {
+    const productItems = document.getElementById(productListId).childNodes;
+    const productImg = document.getElementById(productImgId);
+    const productTitle = document.getElementById(productTitleId);
+    setTimeout(() => {
+        productTitle.classList.add('animate__animated');
+        productTitle.classList.add('animate__fadeIn');
+    }, 100);
+
+    for (const [index, child] of productItems.entries()) {
+        setTimeout(() => {
+            child.classList.add('animate__animated');
+            child.classList.add('animate__fadeIn');
+        }, index * productItemInterval);
+    }
+
+    setTimeout(() => {
+        productImg.classList.add('animate__animated');
+        productImg.classList.add('animate__fadeIn');
+    }, productItems.length * productItemInterval);
+}
+
+function afterLoad(origin, destination, direction) {
+    const loadIndex = destination.index;
+
+    if (loadIndex == 0) {
+        animateProduct('product1', 'productImg1', 'productTitle1');
+    }
+
+    if (loadIndex == 1) {
+        animateProduct('product2', 'productImg2', 'productTitle2');
+    }
+
+    if (loadIndex == 2) {
+        animateProduct('product3', 'productImg3', 'productTitle3');
+    }
+
+    if (loadIndex == 3) {
+        const block1 = document.getElementById('speedBlock1');
+        const fadeInStep = 300;
+        if (block1.style.opacity < 1) {
+            block1.style.marginTop = '0px';
+            block1.style.width = '64px';
+            block1.style.height = '64px';
+            block1.style.opacity = 1;
+
+            setTimeout(() => {
+                block1.style.marginTop = '0px';
+                block1.style.width = '240px';
+                block1.style.height = '64px';
+                block1.style.opacity = 1;
+            }, 1000);
+
+            fadeIn('speedBlock2', 1500);
+            fadeIn('speedBlock3', 1500 + fadeInStep * 1);
+            fadeIn('speedTitle', 1500 + fadeInStep * 2);
+            fadeIn('speedSubTitle1', 1500 + fadeInStep * 3);
+            fadeIn('speedSubTitle2', 1500 + fadeInStep * 4);
+        }
+    }
+}
+
+function fadeIn(elementId, delay) {
+    const element = document.getElementById(elementId);
+
+    setTimeout(() => {
+        element.style.opacity = 1;
+    }, delay);
+}
+
 export default function Product() {
 
     return <div style={{ backgroundColor: '#081508' }}>
@@ -17,6 +102,8 @@ export default function Product() {
         <ReactFullpage
             scrollOverflow={true}
             sectionsColor={["#081508", "#081508", "#081508", "#081508", "#081508", "#081508", "#081508", "#081508"]}
+            onLeave={onLeave.bind(this)}
+            afterLoad={afterLoad.bind(this)}
             render={({ state, fullpageApi }) => {
                 return (
                     <div id="fullpage-wrapper">
@@ -27,21 +114,25 @@ export default function Product() {
                                 <NBHead />
                                 <div className={styles.sectionContainer}>
                                     <div>
-                                        <div style={{ marginTop: '108px', display: 'flex', alignItems: 'end', fontSize: '44px', color: 'white' }}>
-                                            <div>
-                                                <div style={{ marginBottom: '18px', color: '#061505', backgroundColor: '#033915', padding: '2px 26px 2px 8px', fontSize: '20px', letterSpacing: '2px', lineHeight: '28px' }}>
-                                                    FiNB JI QUN JIA GOU TI GONG YOU ZUI XIN YI DAI Filecoin FEN BU SHI CUN CHU CHAN PIN
+                                        <div id='productTitle1' style={{ opacity: '0' }}>
+                                            <div style={{ marginTop: '108px', display: 'flex', alignItems: 'end', fontSize: '44px', color: 'white' }}>
+                                                <div>
+                                                    <div className={styles.productEngTitle}>
+                                                        FiNB JI QUN JIA GOU TI GONG YOU ZUI XIN YI DAI Filecoin FEN BU SHI CUN CHU CHAN PIN
+                                                    </div>
+                                                    <div >
+                                                        FilNB 集群架构提供有最新⼀代Filecoin分布式存储产品
+                                                    </div>
                                                 </div>
-
-                                                FilNB 集群架构提供有最新⼀代Filecoin分布式存储产品
+                                                <div style={{ marginLeft: '12px', marginTop: '28px' }}>
+                                                    <Image src='/images/ic_comma.png' width={46} height={32}></Image>
+                                                </div>
                                             </div>
-                                            <div style={{ marginLeft: '12px', marginTop: '28px' }}>
-                                                <Image src='/images/ic_comma.png' width={46} height={32}></Image>
-                                            </div>
+                                            <div style={{ width: '80px', height: '8px', backgroundColor: '#2ECC4F', marginTop: '28px' }} />
                                         </div>
-                                        <div style={{ width: '80px', height: '8px', backgroundColor: '#2ECC4F', marginTop: '28px' }} />
+
                                         <div style={{ marginTop: '60px', display: 'flex' }}>
-                                            <div style={{ display: 'flex', flexDirection: 'column', flexWrap: 'wrap', height: '500px' }} >
+                                            <div id='product1' style={{ display: 'flex', flexDirection: 'column', flexWrap: 'wrap', height: '500px' }} >
                                                 <div className={styles.productItem}>
                                                     「GPU+CPU」<br />异构运算
                                                 </div>
@@ -76,7 +167,7 @@ export default function Product() {
 
                                             </div>
 
-                                            <div style={{ marginLeft: '220px' }}>
+                                            <div id='productImg1' style={{ opacity: '0', marginLeft: '220px' }}>
                                                 <Image style={{}} src='/images/product01.svg' width={674} height={460} />
                                             </div>
                                         </div>
@@ -90,23 +181,23 @@ export default function Product() {
                         <div className="section">
                             <div className={styles.sectionContainer}>
                                 <div>
-                                    <div style={{ display: 'flex', alignItems: 'end', fontSize: '44px', color: 'white' }}>
-                                        <div>
-                                            <div style={{ marginBottom: '18px', color: '#061505', backgroundColor: '#033915', padding: '2px 26px 2px 8px', fontSize: '20px', letterSpacing: '2px', lineHeight: '28px' }}>
-                                                FiNB JI QUN JIA GOU TI GONG YOU ZUI XIN YI DAI Chia FEN BU SHI CUN CHU CHAN PIN
+                                    <div id='productTitle2' style={{ opacity: '0' }}>
+                                        <div style={{ display: 'flex', alignItems: 'end', fontSize: '44px', color: 'white' }}>
+                                            <div>
+                                                <div className={styles.productEngTitle}>
+                                                    FiNB JI QUN JIA GOU TI GONG YOU ZUI XIN YI DAI Chia FEN BU SHI CUN CHU CHAN PIN
+                                                </div>
+                                                FilNB 集群架构提供有最新⼀代Chia分布式存储产品
                                             </div>
+                                            <div style={{ marginLeft: '12px', marginTop: '28px' }}>
+                                                <Image src='/images/ic_comma.png' width={46} height={32}></Image>
+                                            </div>
+                                        </div>
 
-                                            FilNB 集群架构提供有最新⼀代Chia分布式存储产品
-                                        </div>
-                                        <div style={{ marginLeft: '12px', marginTop: '28px' }}>
-                                            <Image src='/images/ic_comma.png' width={46} height={32}></Image>
-                                        </div>
+                                        <div style={{ width: '80px', height: '8px', backgroundColor: '#2ECC4F', marginTop: '28px' }} />
                                     </div>
-
-                                    <div style={{ width: '80px', height: '8px', backgroundColor: '#2ECC4F', marginTop: '28px' }} />
-
                                     <div style={{ marginTop: '60px', display: 'flex' }}>
-                                        <div style={{ display: 'flex', flexDirection: 'column', flexWrap: 'wrap', height: '500px' }} >
+                                        <div id='product2' style={{ display: 'flex', flexDirection: 'column', flexWrap: 'wrap', height: '500px' }} >
                                             <div className={styles.productItem}>
                                                 超大吞吐能力<br />SSD集群组合
                                             </div>
@@ -140,7 +231,7 @@ export default function Product() {
                                             </div>
 
                                         </div>
-                                        <div style={{ marginLeft: '220px' }}>
+                                        <div id='productImg2' style={{ opacity: '0', marginLeft: '220px' }}>
                                             <Image style={{}} src='/images/product02.svg' width={674} height={460} />
                                         </div>
                                     </div>
@@ -153,23 +244,23 @@ export default function Product() {
                         <div className="section">
                             <div className={styles.sectionContainer}>
                                 <div>
-                                    <div style={{ display: 'flex', alignItems: 'end', fontSize: '44px', color: 'white' }}>
-                                        <div>
-                                            <div style={{ marginBottom: '18px', color: '#061505', backgroundColor: '#033915', padding: '2px 26px 2px 8px', fontSize: '20px', letterSpacing: '2px', lineHeight: '28px' }}>
-                                                FiNB JI QUN JIA GOU TI GONG YOU ZUI XIN YI DAI Swarm FEN BU SHI CUN CHU CHAN PIN
+                                    <div id='productTitle3' style={{ opacity: '0' }}>
+                                        <div style={{ display: 'flex', alignItems: 'end', fontSize: '44px', color: 'white' }}>
+                                            <div>
+                                                <div className={styles.productEngTitle}>
+                                                    FiNB JI QUN JIA GOU TI GONG YOU ZUI XIN YI DAI Swarm FEN BU SHI CUN CHU CHAN PIN
+                                                </div>
+                                                FilNB 集群架构提供有最新⼀代Swarm分布式存储产品
                                             </div>
+                                            <div style={{ marginLeft: '12px', marginTop: '28px' }}>
+                                                <Image src='/images/ic_comma.png' width={46} height={32}></Image>
+                                            </div>
+                                        </div>
 
-                                            FilNB 集群架构提供有最新⼀代Swarm分布式存储产品
-                                        </div>
-                                        <div style={{ marginLeft: '12px', marginTop: '28px' }}>
-                                            <Image src='/images/ic_comma.png' width={46} height={32}></Image>
-                                        </div>
+                                        <div style={{ width: '80px', height: '8px', backgroundColor: '#2ECC4F', marginTop: '28px' }} />
                                     </div>
-
-                                    <div style={{ width: '80px', height: '8px', backgroundColor: '#2ECC4F', marginTop: '28px' }} />
-
                                     <div style={{ marginTop: '60px', display: 'flex' }}>
-                                        <div style={{ display: 'flex', flexDirection: 'column', height: '500px', alignItems: 'center', justifyContent: 'center' }} >
+                                        <div id='product3' style={{ display: 'flex', flexDirection: 'column', height: '500px', alignItems: 'center', justifyContent: 'center' }} >
                                             <div className={styles.productItem2}>
                                                 英业达独家定制<br />最优虚拟化解决方案
                                             </div>
@@ -182,7 +273,7 @@ export default function Product() {
                                                 领先的集群存储<br />及分发能力
                                             </div>
                                         </div>
-                                        <div style={{ marginLeft: '80px' }}>
+                                        <div id='productImg3' style={{ opacity: '0', marginLeft: '80px' }}>
                                             <Image style={{}} src='/images/product03.svg' width={700} height={480} />
                                         </div>
                                     </div>
@@ -193,20 +284,20 @@ export default function Product() {
                         {/* Speed blocks */}
                         <div className="section">
                             <div className={styles.sectionContainer}>
-                                <div style={{ width: '240px', borderRadius: '10px', height: '64px', backgroundColor: '#2ECC4F' }}></div>
-                                <div style={{ width: '220px', borderRadius: '10px', height: '64px', backgroundColor: '#2ECC4F', marginTop: '16px' }}></div>
-                                <div style={{ width: '200px', borderRadius: '10px', height: '64px', backgroundColor: '#2ECC4F', marginTop: '16px' }}></div>
+                                <div id='speedBlock1' className={styles.block1}></div>
+                                <div id='speedBlock2' className={styles.block2}></div>
+                                <div id='speedBlock3' className={styles.block3}></div>
 
-                                <div style={{ marginTop: '110px', fontSize: '56px', fontWeight: 'bold', lineHeight: '78px' }}>
+                                <div id='speedTitle' style={{ opacity: 0, transition: 'opacity 1s ease', marginTop: '110px', fontSize: '56px', fontWeight: 'bold', lineHeight: '78px' }}>
                                     进行证明速度更快<br />
                                     完成分装时间更短
                                 </div>
 
-                                <div style={{ marginTop: '168px', fontSize: '32px', fontWeight: 'bold', lineHeight: '45px' }}>
+                                <div id='speedSubTitle1' style={{ opacity: 0, transition: 'opacity 1s ease', marginTop: '168px', fontSize: '32px', fontWeight: 'bold', lineHeight: '45px' }}>
                                     官方10倍有效算力加持
                                 </div>
 
-                                <div style={{ color: '#FEFEFE', marginTop: '16px', fontSize: '20px', lineHeight: '28px' }}>
+                                <div id='speedSubTitle2' style={{ opacity: 0, transition: 'opacity 1s ease', color: '#FEFEFE', marginTop: '16px', fontSize: '20px', lineHeight: '28px', fontFamily: 'PingFangSC-Regular, PingFang SC', fontWeight: 400 }}>
                                     百P规模存储集群，高稳定大吞吐，支持无缝扩容
                                     <br />
                                     底层算法经过多轮优化改进，实测效能全网领先
