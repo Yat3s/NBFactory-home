@@ -5,6 +5,47 @@ import NBHead from '../components/head'
 import Lottie from "react-lottie";
 import animMain from "/public/animations/anim_home.json";
 import ReactFullpage from '@fullpage/react-fullpage';
+function onLeave(origin, destination, direction) {
+  const leavingIndex = origin.index;
+  let reachingIndex = 0;
+  if (direction == 'down') {
+    reachingIndex = leavingIndex + 1;
+  } else {
+    reachingIndex = leavingIndex - 1;
+  }
+
+  console.log("Leaving section " + origin.index + ',' + direction + ', ' + reachingIndex);
+}
+
+function afterLoad(origin, destination, direction) {
+  const loadIndex = destination.index;
+
+  if (loadIndex == 0) {
+  }
+
+  if (loadIndex == 1) {
+    fadeIn('missionImg', 0, 'animate__fadeInLeft');
+    fadeIn('missionTitle', 300, 'animate__fadeInDown');
+    fadeIn('missionContent', 600, 'animate__fadeInUp');
+  }
+
+  if (loadIndex == 2) {
+    fadeIn('linkageImg', 0, 'animate__bounceInDown');
+  }
+
+  if (loadIndex == 3) {
+  }
+}
+
+function fadeIn(elementId, delay, animation) {
+  const element = document.getElementById(elementId);
+
+  setTimeout(() => {
+    element.style.opacity = 1;
+    element.classList.add('animate__animated');
+    element.classList.add(animation);
+  }, delay);
+}
 
 export default function Home() {
 
@@ -28,6 +69,8 @@ export default function Home() {
       <ReactFullpage
         scrollOverflow={true}
         sectionsColor={["#081508", "#081508", "#081508", "#081508"]}
+        onLeave={onLeave.bind(this)}
+        afterLoad={afterLoad.bind(this)}
         render={({ state, fullpageApi }) => {
           return (
             <div id="fullpage-wrapper">
@@ -46,13 +89,13 @@ export default function Home() {
                           <div className={styles.logoText}>NB 超级工厂</div>
                         </div>
 
-                        <span style={{ color: '#FEFEFE', opacity: '0.6', marginTop: '8px', fontSize: '20px', }}>
+                        <span className={styles.logoSubtitle}>
                           NonaByte Factory
                         </span>
                       </div>
 
 
-                      <div style={{ marginRight: '80px', color: '#FEFEFE', fontSize: '20px' }}>
+                      <div className={styles.logoRightMenu} >
                         <p>
                           塑造｜ 应用｜ 赋权
                         </p>
@@ -76,12 +119,12 @@ export default function Home() {
                 <div className={styles.sectionContainer}>
 
                   <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <div className='animate__animated animate__flip' style={{ width: 563 + 'px', height: 850 + 'px' }}>
+                    <div id='missionImg' style={{ opacity: 0, width: 563 + 'px', height: 850 + 'px' }}>
                       <Image src='/images/img_mission.png' width={563} height={850}></Image>
                     </div>
 
                     <div style={{ position: 'relative', marginLeft: 47 + 'px' }}>
-                      <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', }} className={styles.missionTitle}>
+                      <div id='missionTitle' style={{ opacity: 0, position: 'relative', display: 'flex', flexDirection: 'column', }} className={styles.missionTitle}>
                         <div>
                           <Image src='/images/img_text_frame.png' width={490} height={88}>
                           </Image>
@@ -91,14 +134,17 @@ export default function Home() {
                         </div>
                       </div>
 
-                      <div style={{ maxWidth: '535px' }} className={styles.missionContent}>
-                        价值数据宇宙，人类未来全新的疆域，这是属于星舰FilNB的航程。超级工厂的任务是为生态成员提供更多有效算力，
-                        肯定.赋能.链接每一有效存储，加速世界向web3.0时代过渡。持续生产持续创造，奋力挣脱大地粗暴的束缚，坚勇航向前人所未至的文明，去触摸造物主温柔的脸庞，去实现生命体对美、对好奇心的想象。
+                      <div id='missionContent' style={{ opacity: 0 }} >
+                        <div style={{}} className={styles.missionContent}>
+                          价值数据宇宙，人类未来全新的疆域，这是属于星舰FilNB的航程。超级工厂的任务是为生态成员提供更多有效算力，
+                          肯定.赋能.链接每一有效存储，加速世界向web3.0时代过渡。持续生产持续创造，奋力挣脱大地粗暴的束缚，坚勇航向前人所未至的文明，去触摸造物主温柔的脸庞，去实现生命体对美、对好奇心的想象。
+                        </div>
+
+                        <div style={{ opacity: 0, position: 'absolute', right: 0 }}>
+                          <Image src='/images/ic_comma.png' width={69} height={48}></Image>
+                        </div>
                       </div>
 
-                      <div style={{ position: 'absolute', right: 0 }}>
-                        <Image src='/images/ic_comma.png' width={69} height={48}></Image>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -132,7 +178,7 @@ export default function Home() {
                     </p>
                   </div>
 
-                  <div style={{position: 'absolute', bottom: '0', }}>
+                  <div id='linkageImg' style={{ position: 'absolute', bottom: '0', }}>
                     <Image src='/images/img_superlinkage.png' height={216} width={1920}></Image>
                   </div>
                 </div>
