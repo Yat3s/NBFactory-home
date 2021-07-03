@@ -30,7 +30,8 @@ function afterLoad(origin, destination, direction) {
   }
 
   if (loadIndex == 2) {
-    fadeIn('linkageImg', 0, 'animate__bounceInDown');
+    fadeIn('linkageContent', 0, 'animate__fadeInDown');
+    fadeIn('linkageImg', 200, 'animate__zoomInDown');
   }
 
   if (loadIndex == 3) {
@@ -154,7 +155,7 @@ export default function Home() {
               {/* Super Linkage */}
               <div className="section">
                 <div style={{ position: 'relative', height: '100%' }} className={styles.sectionContainer}>
-                  <div style={{ maxWidth: '1200px', }}>
+                  <div id='linkageContent' style={{ opacity: 0, maxWidth: '1200px', }}>
                     <div style={{ padding: '2px 8px', backgroundColor: '#033915', width: 'fit-content' }}>
                       CHAO JI LIAN DONG
                     </div>
@@ -178,7 +179,7 @@ export default function Home() {
                     </p>
                   </div>
 
-                  <div id='linkageImg' style={{ position: 'absolute', bottom: '0', }}>
+                  <div id='linkageImg' style={{ opacity: 0, position: 'absolute', bottom: '0', }}>
                     <Image src='/images/img_superlinkage.png' height={216} width={1920}></Image>
                   </div>
                 </div>
