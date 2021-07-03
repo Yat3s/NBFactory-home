@@ -11,3 +11,19 @@
     justify-content: center;
     align-items: center;
 }
+
+.profileContent {
+    margin-top: 24px;
+    font-size: 20px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #FEFEFE;
+    line-height: 40px;
+    opacity: 0.8;
+}
+
+.profileLogo {
+    opacity: 1;
+    transition: all 1s ease-out;
+    transform: scale(0.2);
+}

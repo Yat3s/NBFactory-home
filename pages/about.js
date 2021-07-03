@@ -46,7 +46,27 @@ function onLeave(origin, destination, direction) {
 }
 
 function afterLoad(origin, destination, direction) {
-    console.log("afterLoad " + origin.index);
+    const loadIndex = destination.index;
+
+    if (loadIndex == 0) {
+        const profileLogo = document.getElementById('profileLogo');
+        profileLogo.style.opacity = 0.1;
+        profileLogo.style.transform = 'scale(1)'
+        appearWithAnimation('profileContent', 200, 'animate__fadeInUp')
+    }
+
+    if (loadIndex == 1) {
+    }
+}
+
+function appearWithAnimation(elementId, delay, animationId) {
+    const element = document.getElementById(elementId);
+
+    setTimeout(() => {
+        element.style.opacity = 1;
+        element.classList.add('animate__animated');
+        element.classList.add(animationId);
+    }, delay);
 }
 
 export default function About() {
@@ -114,18 +134,25 @@ export default function About() {
             sectionsColor={["#081508", "#081508", "#081508", "#081508", "#081508", "#081508", "#081508", "#081508"]}
             onLeave={onLeave.bind(this)}
             afterLoad={afterLoad.bind(this)}
+            anchors={['CompanyProfile', 'NBMap', 'NBFactory', 'HardwareSupply', 'TechSupply', 'CapitalSupply', 'Growth', 'SINSO']}
+            navigation={true}
+            navigationTooltips={['CompanyProfile', 'NBMap', 'NBFactory', 'HardwareSupply', 'TechSupply', 'CapitalSupply', 'Growth', 'SINSO']}
             render={({ state, fullpageApi }) => {
                 return (
                     <div id="fullpage-wrapper">
                         <div className="section section1">
                             <div style={{ height: '100%' }}>
                                 <NBHead />
-                                <div style={{ width: '100%', marginTop: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                    <Image src='/images/img_introduce.png' width={1920} height={392} />
+
+                                <div className={styles.center} >
+                                    <div id='profileLogo' className={styles.profileLogo} >
+                                        <Image src='/images/introduction.svg' width={1920} height={390} />
+                                    </div>
                                 </div>
 
-                                <div className={styles.center}>
-                                    <div style={{ maxWidth: '960px', marginTop: '90px' }}>
+
+                                <div style={{ height: '100%' }} className={styles.center}>
+                                    <div id='profileContent' style={{ opacity: 0, maxWidth: '960px', marginTop: '168px' }}>
                                         <span style={{ color: '#FEFEFE', opacity: '0.6', fontSize: '20px' }}>
                                             Company Profile
                                         </span>
@@ -134,7 +161,7 @@ export default function About() {
                                             公司介绍
                                         </div>
 
-                                        <div style={{ fontSize: '20px', color: '#FEFEFE', lineHeight: '40px', marginTop: '24px' }}>
+                                        <div className={styles.profileContent} >
                                             超级工厂总部坐标上海区块链技术创新与产业基地。我们的团队深耕区块链领域多年，致力于夯实底层基础 建设，推动生态应用落地，为各需求客户提供法律、风控、政策、技术等方面的权威指导与一手服务。未来， 超级工厂将在舟山、海南、新加坡、瑞士等多地设立办公室，为全球算力、全球IDC布局创建更健康的共识内大系统支持。
                                         </div>
                                     </div>

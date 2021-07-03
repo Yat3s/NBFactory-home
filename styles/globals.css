@@ -1,5 +1,4 @@
 @import 'animate.css/animate.css';
-
 html, body {
   padding: 0;
   margin: 0;
@@ -18,4 +17,39 @@ a {
   box-sizing: border-box;
 }
 
+.fp-viewing-Home #fp-nav ul li a span {
+  background: rgb(148, 147, 147);
+}
 
+.fp-viewing-Mission #fp-nav ul li a span {
+  background: rgb(148, 147, 147);
+}
+
+.fp-viewing-SuperLinkage #fp-nav ul li a span {
+  background: rgb(148, 147, 147);
+}
+
+.fp-viewing-TBD #fp-nav ul li a span {
+  background: rgb(148, 147, 147);
+}
+
+/* Product */
+.fp-viewing-Product1 #fp-nav ul li a span {
+  background: rgb(148, 147, 147);
+}
+
+.fp-viewing-Product2 #fp-nav ul li a span {
+  background: rgb(148, 147, 147);
+}
+
+.fp-viewing-Product3 #fp-nav ul li a span {
+  background: rgb(148, 147, 147);
+}
+
+.fp-viewing-Speed #fp-nav ul li a span {
+  background: rgb(148, 147, 147);
+}
+
+.fp-viewing-ContactUs #fp-nav ul li a span {
+  background: rgb(148, 147, 147);
+}

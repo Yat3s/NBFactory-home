@@ -104,6 +104,9 @@ export default function Product() {
             sectionsColor={["#081508", "#081508", "#081508", "#081508", "#081508", "#081508", "#081508", "#081508"]}
             onLeave={onLeave.bind(this)}
             afterLoad={afterLoad.bind(this)}
+            anchors={['Product1', 'Product2', 'Product3', 'Speed', 'TBD', 'ContactUs']}
+            navigation={true}
+            navigationTooltips={['Product1', 'Product2', 'Product3', 'Speed', 'TBD', 'ContactUs']}
             render={({ state, fullpageApi }) => {
                 return (
                     <div id="fullpage-wrapper">
