@@ -2,6 +2,8 @@
 import Head from 'next/head'
 import NBHead from '../components/head'
 import Image from 'next/image'
+import ReactFullpage from '@fullpage/react-fullpage';
+import styles from '../styles/Product.module.css'
 
 export default function Product() {
 
@@ -12,113 +14,258 @@ export default function Product() {
             <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <NBHead />
+        <ReactFullpage
+            scrollOverflow={true}
+            sectionsColor={["#081508", "#081508", "#081508", "#081508", "#081508", "#081508", "#081508", "#081508"]}
+            render={({ state, fullpageApi }) => {
+                return (
+                    <div id="fullpage-wrapper">
 
-        <main style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
-            <div>
-                {/* Product 1 */}
-                <div style={{ marginTop: '108px', color: '#061505', backgroundColor: '#033915', padding: '2px 26px 2px 8px', fontSize: '20px', letterSpacing: '2px', lineHeight: '28px', width: 'fit-content' }}>
-                    FiNB JI QUN JIA GOU TI GONG YOU ZUI XIN YI DAI Filecoin FEN BU SHI CUN CHU CHAN PIN
-                </div>
+                        {/* Product 1 */}
+                        <div className="section section1">
+                            <div style={{ height: '100%' }}>
+                                <NBHead />
+                                <div className={styles.sectionContainer}>
+                                    <div>
+                                        <div style={{ marginTop: '108px', display: 'flex', alignItems: 'end', fontSize: '44px', color: 'white' }}>
+                                            <div>
+                                                <div style={{ marginBottom: '18px', color: '#061505', backgroundColor: '#033915', padding: '2px 26px 2px 8px', fontSize: '20px', letterSpacing: '2px', lineHeight: '28px' }}>
+                                                    FiNB JI QUN JIA GOU TI GONG YOU ZUI XIN YI DAI Filecoin FEN BU SHI CUN CHU CHAN PIN
+                                                </div>
 
-                <div style={{ marginTop: '18px', display: 'flex', fontSize: '44px', color: 'white' }}>
-                    FilNB 集群架构提供有最新⼀代Filecoin分布式存储产品
-                    <div style={{ marginLeft: '8px' }}>
-                        <Image src='/images/ic_comma.png' width={46} height={32}></Image>
-                    </div>
-                </div>
+                                                FilNB 集群架构提供有最新⼀代Filecoin分布式存储产品
+                                            </div>
+                                            <div style={{ marginLeft: '12px', marginTop: '28px' }}>
+                                                <Image src='/images/ic_comma.png' width={46} height={32}></Image>
+                                            </div>
+                                        </div>
+                                        <div style={{ width: '80px', height: '8px', backgroundColor: '#2ECC4F', marginTop: '28px' }} />
+                                        <div style={{ marginTop: '60px', display: 'flex' }}>
+                                            <div style={{ display: 'flex', flexDirection: 'column', flexWrap: 'wrap', height: '500px' }} >
+                                                <div className={styles.productItem}>
+                                                    「GPU+CPU」<br />异构运算
+                                                </div>
 
-                <div style={{ width: '80px', height: '8px', backgroundColor: '#2ECC4F', marginTop: '28px' }} />
+                                                <div className={styles.productItem}>
+                                                    ⽀持C2任务<br />独⽴计算
+                                                </div>
 
-                <div style={{ marginTop: '40px' }}>
-                    <Image src='/images/img_product_1.png' width={1080} height={460} />
-                </div>
+                                                <div className={styles.productItem}>
+                                                    最⼤化提升<br />运作效率
+                                                </div>
 
+                                                <div className={styles.productItem}>
+                                                    可灵活部署
+                                                </div>
 
-                {/* Product 2 */}
-                <div style={{ marginTop: '280px', color: '#061505', backgroundColor: '#033915', padding: '2px 26px 2px 8px', fontSize: '20px', letterSpacing: '2px', lineHeight: '28px', width: 'fit-content' }}>
-                    FiNB JI QUN JIA GOU TI GONG YOU ZUI XIN YI DAI Chia FEN BU SHI CUN CHU CHAN PIN
-                </div>
+                                                <div className={styles.productItem}>
+                                                    模块化分离<br /> 「计算与存储」设备
+                                                </div>
 
-                <div style={{ marginTop: '18px', display: 'flex', fontSize: '44px', color: 'white' }}>
-                    FilNB 集群架构提供有最新⼀代Chia分布式存储产品
-                    <div style={{ marginLeft: '8px' }}>
-                        <Image src='/images/ic_comma.png' width={46} height={32}></Image>
-                    </div>
-                </div>
+                                                <div className={styles.productItem}>
+                                                    ⾃研挖矿程序<br />协调调度
+                                                </div>
 
-                <div style={{ width: '80px', height: '8px', backgroundColor: '#2ECC4F', marginTop: '28px' }} />
+                                                <div className={styles.productItem}>
+                                                    ⾼性能<br />⾼性价⽐
+                                                </div>
 
-                <div style={{ marginTop: '40px' }}>
-                    <Image src='/images/img_product_2.png' width={1080} height={450} />
-                </div>
+                                                <div className={styles.productItem}>
+                                                    自由扩展
+                                                </div>
 
+                                            </div>
 
-                {/* Product 3 */}
-                <div style={{ marginTop: '280px', color: '#061505', backgroundColor: '#033915', padding: '2px 26px 2px 8px', fontSize: '20px', letterSpacing: '2px', lineHeight: '28px', width: 'fit-content' }}>
-                    FiNB JI QUN JIA GOU TI GONG YOU ZUI XIN YI DAI Swarm FEN BU SHI CUN CHU CHAN PIN
-                </div>
-
-                <div style={{ marginTop: '18px', display: 'flex', fontSize: '44px', color: 'white' }}>
-                    FilNB 集群架构提供有最新⼀代Swarm分布式存储产品
-                    <div style={{ marginLeft: '8px' }}>
-                        <Image src='/images/ic_comma.png' width={46} height={32}></Image>
-                    </div>
-                </div>
-
-                <div style={{ width: '80px', height: '8px', backgroundColor: '#2ECC4F', marginTop: '28px' }} />
-
-                <div style={{ marginTop: '40px' }}>
-                    <Image src='/images/img_product_3.png' width={1080} height={600} />
-                </div>
-            </div>
-
-            <div style={{ width: '240px', borderRadius: '10px', height: '64px', backgroundColor: '#2ECC4F', marginTop: '150px' }}></div>
-            <div style={{ width: '220px', borderRadius: '10px', height: '64px', backgroundColor: '#2ECC4F', marginTop: '16px' }}></div>
-            <div style={{ width: '200px', borderRadius: '10px', height: '64px', backgroundColor: '#2ECC4F', marginTop: '16px' }}></div>
-
-            <div style={{ marginTop: '110px', fontSize: '56px', fontWeight: 'bold', lineHeight: '78px' }}>
-                进行证明速度更快<br />
-                完成分装时间更短
-            </div>
-
-            <div style={{ marginTop: '168px', fontSize: '32px', fontWeight: 'bold', lineHeight: '45px' }}>
-                官方10倍有效算力加持
-            </div>
-
-            <div style={{ color: '#FEFEFE', marginTop: '16px', fontSize: '20px', lineHeight: '28px' }}>
-                百P规模存储集群，高稳定大吞吐，支持无缝扩容
-                <br />
-                底层算法经过多轮优化改进，实测效能全网领先
-            </div>
-
-            <div style={{ marginTop: '92px', height: '957px', width: '1920px', backgroundColor: '#1A723E' }}>
-            </div>
-
-            <div style={{ position: 'relative' }}>
-                <Image src='/images/img_bg_contact.png' width={1920} height={947} />
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', color: '#0AFF3D', position: 'absolute', left: '50%', top: '50%', fontWeight: 'bold', fontSize: '100px', transform: 'translate(-50%, -50%)' }}>
-                    Contact US
-                    <div style={{ fontSize: '32px', marginTop: '24px' }}>
-                        上海市杨浦区湾谷科技园C6座701室
-                    </div>
-
-                    <div style={{ marginTop: '100px', display: 'flex', alignItems: 'center' }}>
-                        <div style={{ marginLeft: '24px' }}>
-                            <Image src='/images/img_qrcode_1.png' width={100} height={100} />
+                                            <div style={{ marginLeft: '220px' }}>
+                                                <Image style={{}} src='/images/product01.svg' width={674} height={460} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        <div style={{ marginLeft: '24px' }}>
-                            <Image src='/images/img_qrcode_2.png' width={100} height={100} />
+
+                        {/* Product 2 */}
+                        <div className="section">
+                            <div className={styles.sectionContainer}>
+                                <div>
+                                    <div style={{ display: 'flex', alignItems: 'end', fontSize: '44px', color: 'white' }}>
+                                        <div>
+                                            <div style={{ marginBottom: '18px', color: '#061505', backgroundColor: '#033915', padding: '2px 26px 2px 8px', fontSize: '20px', letterSpacing: '2px', lineHeight: '28px' }}>
+                                                FiNB JI QUN JIA GOU TI GONG YOU ZUI XIN YI DAI Chia FEN BU SHI CUN CHU CHAN PIN
+                                            </div>
+
+                                            FilNB 集群架构提供有最新⼀代Chia分布式存储产品
+                                        </div>
+                                        <div style={{ marginLeft: '12px', marginTop: '28px' }}>
+                                            <Image src='/images/ic_comma.png' width={46} height={32}></Image>
+                                        </div>
+                                    </div>
+
+                                    <div style={{ width: '80px', height: '8px', backgroundColor: '#2ECC4F', marginTop: '28px' }} />
+
+                                    <div style={{ marginTop: '60px', display: 'flex' }}>
+                                        <div style={{ display: 'flex', flexDirection: 'column', flexWrap: 'wrap', height: '500px' }} >
+                                            <div className={styles.productItem}>
+                                                超大吞吐能力<br />SSD集群组合
+                                            </div>
+
+                                            <div className={styles.productItem}>
+                                                绿色节能<br />高复用性
+                                            </div>
+
+                                            <div className={styles.productItem}>
+                                                最⼤化提升<br />运作效率
+                                            </div>
+
+                                            <div className={styles.productItem}>
+                                                可灵活部署
+                                            </div>
+
+                                            <div className={styles.productItem}>
+                                                「核心数 | 内存数 」<br /> 行业领先
+                                            </div>
+
+                                            <div className={styles.productItem}>
+                                                ⾃研挖矿程序<br />协调调度
+                                            </div>
+
+                                            <div className={styles.productItem}>
+                                                ⾼性能<br />⾼性价⽐
+                                            </div>
+
+                                            <div className={styles.productItem}>
+                                                自由扩展
+                                            </div>
+
+                                        </div>
+                                        <div style={{ marginLeft: '220px' }}>
+                                            <Image style={{}} src='/images/product02.svg' width={674} height={460} />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
+
+                        {/* Product 3 */}
+                        <div className="section">
+                            <div className={styles.sectionContainer}>
+                                <div>
+                                    <div style={{ display: 'flex', alignItems: 'end', fontSize: '44px', color: 'white' }}>
+                                        <div>
+                                            <div style={{ marginBottom: '18px', color: '#061505', backgroundColor: '#033915', padding: '2px 26px 2px 8px', fontSize: '20px', letterSpacing: '2px', lineHeight: '28px' }}>
+                                                FiNB JI QUN JIA GOU TI GONG YOU ZUI XIN YI DAI Swarm FEN BU SHI CUN CHU CHAN PIN
+                                            </div>
+
+                                            FilNB 集群架构提供有最新⼀代Swarm分布式存储产品
+                                        </div>
+                                        <div style={{ marginLeft: '12px', marginTop: '28px' }}>
+                                            <Image src='/images/ic_comma.png' width={46} height={32}></Image>
+                                        </div>
+                                    </div>
+
+                                    <div style={{ width: '80px', height: '8px', backgroundColor: '#2ECC4F', marginTop: '28px' }} />
+
+                                    <div style={{ marginTop: '60px', display: 'flex' }}>
+                                        <div style={{ display: 'flex', flexDirection: 'column', height: '500px', alignItems: 'center', justifyContent: 'center' }} >
+                                            <div className={styles.productItem2}>
+                                                英业达独家定制<br />最优虚拟化解决方案
+                                            </div>
+
+                                            <div className={styles.productItem2}>
+                                                Intel | Samsung<br />大厂直供 优选NVMeSSD
+                                            </div>
+
+                                            <div className={styles.productItem2}>
+                                                领先的集群存储<br />及分发能力
+                                            </div>
+                                        </div>
+                                        <div style={{ marginLeft: '80px' }}>
+                                            <Image style={{}} src='/images/product03.svg' width={700} height={480} />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Speed blocks */}
+                        <div className="section">
+                            <div className={styles.sectionContainer}>
+                                <div style={{ width: '240px', borderRadius: '10px', height: '64px', backgroundColor: '#2ECC4F' }}></div>
+                                <div style={{ width: '220px', borderRadius: '10px', height: '64px', backgroundColor: '#2ECC4F', marginTop: '16px' }}></div>
+                                <div style={{ width: '200px', borderRadius: '10px', height: '64px', backgroundColor: '#2ECC4F', marginTop: '16px' }}></div>
+
+                                <div style={{ marginTop: '110px', fontSize: '56px', fontWeight: 'bold', lineHeight: '78px' }}>
+                                    进行证明速度更快<br />
+                                    完成分装时间更短
+                                </div>
+
+                                <div style={{ marginTop: '168px', fontSize: '32px', fontWeight: 'bold', lineHeight: '45px' }}>
+                                    官方10倍有效算力加持
+                                </div>
+
+                                <div style={{ color: '#FEFEFE', marginTop: '16px', fontSize: '20px', lineHeight: '28px' }}>
+                                    百P规模存储集群，高稳定大吞吐，支持无缝扩容
+                                    <br />
+                                    底层算法经过多轮优化改进，实测效能全网领先
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* TBD */}
+                        <div className="section">
+                            <div className={styles.sectionContainer}>
+                                <div style={{ marginTop: '92px', height: '957px', width: '1920px', backgroundColor: '#1A723E' }}>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Contact US */}
+                        <div className="section">
+                            <div className={styles.sectionContainer}>
+                                <div style={{ position: 'relative' }}>
+                                    <Image src='/images/img_bg_contact.png' width={1920} height={947} />
+                                    <div className={styles.center} style={{ width: '100%', height: '100%', zIndex: 100, position: 'absolute', left: 0, top: 0 }}>
+                                        <div className={styles.contactUsTitle}>
+                                            CONTACT US
+                                        </div>
+                                        <div className={styles.contactUsAddress}>
+                                            上海市杨浦区湾谷科技园C6座701室
+                                        </div>
+
+                                        <div style={{ border: '1px solid #2ECC4F', padding: '6px 20px', color: '#0AFF3D', marginTop: '64px' }}>
+                                            友情链接 www.google.com
+                                        </div>
+
+                                        <div style={{ marginTop: '100px', display: 'flex', alignItems: 'center' }}>
+                                            <Image src='/images/ic_arrow_right.png' width={32} height={32} />
+
+                                            <div style={{ marginLeft: '20px' }}>
+                                                <Image src='/images/img_qrcode_2.png' width={100} height={100} />
+                                            </div>
+
+                                            <div style={{ marginLeft: '22px' }}>
+                                                <Image src='/images/img_qrcode_1.png' width={100} height={100} />
+                                            </div>
+
+                                            <div style={{ marginLeft: '20px' }}>
+                                                <Image src='/images/ic_arrow_left.png' width={32} height={32} />
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
-
-                </div>
-
-            </div>
-
-        </main>
+                )
+            }}
+        />
 
     </div>
 }

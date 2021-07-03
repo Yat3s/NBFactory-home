@@ -28,7 +28,5 @@ export default function NBHead() {
                 </Link>
             </div>
         </div>
-
-
     </div>
 }

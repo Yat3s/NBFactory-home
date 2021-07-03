@@ -8,7 +8,7 @@
 
 .headContainer {
     width: 80%;
-    max-width: 1080px;
+    max-width: 1200px;
     padding: 12px 0;
     align-items: center;
     display: flex;
@@ -17,7 +17,7 @@
 
 .menuContainer {
     display: flex;
-    max-width: 1080px;
+    max-width: 1200px;
 }
 .menu:hover,
 .menu:focus,
@@ -27,5 +27,5 @@
 
 .menu {
     font-weight: bold;
-    margin: 12px;
+    margin-left: 63px;
 }

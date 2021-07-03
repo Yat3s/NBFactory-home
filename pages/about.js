@@ -3,8 +3,51 @@ import NBHead from '../components/head'
 import Image from 'next/image'
 import Lottie from "react-lottie";
 import animMap from "/public/animations/anim_map.json";
-import animMain from "/public/animations/anim_main.json";
 import animGrowth from "/public/animations/anim_growth.json";
+import animNB1 from "/public/animations/nb_1.json";
+import animNB2 from "/public/animations/nb_2.json";
+import animNB3 from "/public/animations/nb_3.json";
+import animNB4 from "/public/animations/nb_4.json";
+
+import ReactFullpage from '@fullpage/react-fullpage';
+import styles from '../styles/About.module.css'
+
+let animMapStop = true;
+let animNB1Stop = true;
+let animNB2Stop = true;
+let animNB3Stop = true;
+let animNB4Stop = true;
+let animGrowthStop = true;
+
+function animationShouldStop(targetIndex, leavingIndex, direction) {
+    if (targetIndex == 0 || leavingIndex == targetIndex) {
+        return false;
+    }
+
+    if ((leavingIndex + 1 == targetIndex && direction == 'down')
+        || (leavingIndex - 1 == targetIndex && direction == 'up')) {
+        return false;
+    }
+
+    return true;
+}
+
+function onLeave(origin, destination, direction) {
+    const leavingIndex = origin.index;
+    animMapStop = animationShouldStop(1, leavingIndex, direction);
+    animNB1Stop = animationShouldStop(2, leavingIndex, direction);
+    animNB2Stop = animationShouldStop(3, leavingIndex, direction);
+    animNB3Stop = animationShouldStop(4, leavingIndex, direction);
+    animNB4Stop = animationShouldStop(5, leavingIndex, direction);
+    animGrowthStop = animationShouldStop(6, leavingIndex, direction);
+
+
+    console.log("Leaving section " + origin.index + ',' + direction);
+}
+
+function afterLoad(origin, destination, direction) {
+    console.log("afterLoad " + origin.index);
+}
 
 export default function About() {
 
@@ -17,10 +60,34 @@ export default function About() {
         },
     };
 
-    const mainLottieOptions = {
+    const NB1LottieOptions = {
         loop: true,
         autoplay: true,
-        animationData: animMain,
+        animationData: animNB1,
+        rendererSettings: {
+            preserveAspectRatio: "xMidYMid slice",
+        },
+    };
+    const NB2LottieOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: animNB2,
+        rendererSettings: {
+            preserveAspectRatio: "xMidYMid slice",
+        },
+    };
+    const NB3LottieOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: animNB3,
+        rendererSettings: {
+            preserveAspectRatio: "xMidYMid slice",
+        },
+    };
+    const NB4LottieOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: animNB4,
         rendererSettings: {
             preserveAspectRatio: "xMidYMid slice",
         },
@@ -42,7 +109,87 @@ export default function About() {
             <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <NBHead />
+        <ReactFullpage
+            scrollOverflow={true}
+            sectionsColor={["#081508", "#081508", "#081508", "#081508", "#081508", "#081508", "#081508", "#081508"]}
+            onLeave={onLeave.bind(this)}
+            afterLoad={afterLoad.bind(this)}
+            render={({ state, fullpageApi }) => {
+                return (
+                    <div id="fullpage-wrapper">
+                        <div className="section section1">
+                            <div style={{ height: '100%' }}>
+                                <NBHead />
+                                <div style={{ width: '100%', marginTop: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                    <Image src='/images/img_introduce.png' width={1920} height={392} />
+                                </div>
+
+                                <div className={styles.center}>
+                                    <div style={{ maxWidth: '960px', marginTop: '90px' }}>
+                                        <span style={{ color: '#FEFEFE', opacity: '0.6', fontSize: '20px' }}>
+                                            Company Profile
+                                        </span>
+
+                                        <div style={{ fontSize: '40px', fontWeight: 'bold', marginTop: '12px' }}>
+                                            公司介绍
+                                        </div>
+
+                                        <div style={{ fontSize: '20px', color: '#FEFEFE', lineHeight: '40px', marginTop: '24px' }}>
+                                            超级工厂总部坐标上海区块链技术创新与产业基地。我们的团队深耕区块链领域多年，致力于夯实底层基础 建设，推动生态应用落地，为各需求客户提供法律、风控、政策、技术等方面的权威指导与一手服务。未来， 超级工厂将在舟山、海南、新加坡、瑞士等多地设立办公室，为全球算力、全球IDC布局创建更健康的共识内大系统支持。
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div className="section">
+                            <div>
+                                <Lottie isStopped={animMapStop} options={mapLottieOptions} isClickToPauseDisabled></Lottie>
+                            </div>
+                        </div>
+
+                        <div className="section">
+                            <div>
+                                <Lottie isStopped={animNB1Stop} options={NB1LottieOptions} isClickToPauseDisabled></Lottie>
+                            </div>
+                        </div>
+
+                        <div className="section">
+                            <div>
+                                <Lottie isStopped={animNB2Stop} options={NB2LottieOptions} isClickToPauseDisabled></Lottie>
+                            </div>
+                        </div>
+
+                        <div className="section">
+                            <div>
+                                <Lottie isStopped={animNB3Stop} options={NB3LottieOptions} isClickToPauseDisabled></Lottie>
+                            </div>
+                        </div>
+
+                        <div className="section">
+                            <div>
+                                <Lottie isStopped={animNB4Stop} options={NB4LottieOptions} isClickToPauseDisabled></Lottie>
+                            </div>
+                        </div>
+
+                        <div className="section">
+                            <div>
+                                <Lottie isStopped={animGrowthStop} options={growthLottieOptions} isClickToPauseDisabled></Lottie>
+                            </div>
+                        </div>
+
+                        <div className="section">
+                            <div style={{ marginTop: '200px', backgroundColor: '#1A723E', width: '100%', height: '800px' }}>
+                                <span style={{ fontSize: '100px' }}>SINSO, Animation</span>
+                            </div>
+                        </div>
+
+                    </div>
+                );
+            }}
+        />
 
         <main style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
             <div style={{ width: '100%', marginTop: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -63,21 +210,6 @@ export default function About() {
                 </div>
             </div>
 
-            {/* Map Animation */}
-            <div style={{ marginTop: '160px' }}>
-                <Lottie options={mapLottieOptions} isClickToPauseDisabled></Lottie>
-            </div>
-
-            {/*  Main Animation */}
-            <div style={{ marginTop: '60px' }}>
-                <Lottie options={mainLottieOptions} isClickToPauseDisabled></Lottie>
-            </div>
-
-
-            {/*  Growth Animation */}
-            <div style={{ marginTop: '60px' }}>
-                <Lottie options={growthLottieOptions} isClickToPauseDisabled></Lottie>
-            </div>
 
             <div style={{}}>
                 <Image src='/images/img_bg_map.png' width={1920} height={947}></Image>
