@@ -5,6 +5,8 @@ import NBHead from '../components/head'
 import Lottie from "react-lottie";
 import animMain from "/public/animations/anim_home.json";
 import ReactFullpage from '@fullpage/react-fullpage';
+import ReactPlayer from 'react-player';
+
 function onLeave(origin, destination, direction) {
   const leavingIndex = origin.index;
   let reachingIndex = 0;
@@ -70,7 +72,6 @@ export default function Home() {
 
       <ReactFullpage
         scrollOverflow={true}
-        disablePointer={true}
         sectionsColor={["#081508", "#081508", "#081508", "#081508"]}
         onLeave={onLeave.bind(this)}
         afterLoad={afterLoad.bind(this)}
@@ -88,7 +89,7 @@ export default function Home() {
                   </NBHead>
                   <div className={styles.sectionContainer}>
 
-                    <div style={{ maxWidth: '1200px', marginTop: '108px' }} className={styles.titleContainer}>
+                    <div style={{ maxWidth: '1200px', marginTop: '60px' }} className={styles.titleContainer}>
                       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <div className={styles.logoContainer}>
                           <Image className={styles.logoImage} src='/images/logo_frame.png' width={320} height={88}></Image>
@@ -110,10 +111,10 @@ export default function Home() {
                         </p>
                       </div>
                     </div>
-
-                    <div className={styles.homeAnimation}>
-                      <Lottie options={lottieOptions} isClickToPauseDisabled ></Lottie>
+                    <div style={{marginTop: '80px'}}>
+                      <ReactPlayer width='1400px' height='auto' url="images/NB.mp4" playing={true} />
                     </div>
+
                   </div>
 
                 </div>
