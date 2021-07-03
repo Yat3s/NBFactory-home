@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="750px" height="595px" viewBox="0 0 750 595" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组</title>
+    <g id="第三页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="产品" transform="translate(-777.000000, -2252.000000)">
+            <g id="编组" transform="translate(778.880000, 2253.000000)">
+                <text id="Horsea-⾼密度SWARM物理服务器" font-family="PingFangSC-Semibold, PingFang SC" font-size="18.8666667" font-weight="500" line-spacing="37.7333333" fill="#FFFFFF">
+                    <tspan x="21.6966667" y="72.8266667">Horsea-⾼密度SWARM物理服务器</tspan>
+                </text>
+                <text id="采用第三代AMD备份" font-family="PingFangSC-Semibold, PingFang SC" font-size="18.8666667" font-weight="500" line-spacing="37.7333333" fill="#FFFFFF">
+                    <tspan x="443.366667" y="72.8266667">采用第三代AMD</tspan>
+                </text>
+                <text id="英特尔P5510-｜三星PM9A3" font-family="PingFangSC-Semibold, PingFang SC" font-size="18.8666667" font-weight="500" line-spacing="37.7333333" fill="#FFFFFF">
+                    <tspan x="444.31" y="284.133333">英特尔P5510 ｜三星PM9A3</tspan>
+                </text>
+                <text id="⼀跳主⼲⽹800M（每台）" font-family="PingFangSC-Semibold, PingFang SC" font-size="18.8666667" font-weight="500" line-spacing="37.7333333" fill="#FFFFFF">
+                    <tspan x="444.31" y="495.44">⼀跳主⼲⽹800M（每台）</tspan>
+                </text>
+                <text id="AMD-7763-Milan-128线程备份" font-family="PingFangSC-Semibold, PingFang SC" font-size="18.8666667" font-weight="500" line-spacing="37.7333333" fill="#FFFFFF">
+                    <tspan x="21.6966667" y="284.133333">AMD 7763 Milan 128线程64核</tspan>
+                </text>
+                <text id="优选NVMe-SSD-⾼IOPS" font-family="PingFangSC-Semibold, PingFang SC" font-size="18.8666667" font-weight="500" line-spacing="37.7333333" fill="#FFFFFF">
+                    <tspan x="21.6966667" y="495.44">优选NVMe SSD ⾼IOPS</tspan>
+                </text>
+                <text id="含128+个物理节点" font-family="PingFangSC-Semibold, PingFang SC" font-size="18.8666667" font-weight="500" line-spacing="37.7333333" fill="#FFFFFF">
+                    <tspan x="21.6966667" y="114.333333">含128+个物理节点</tspan>
+                </text>
+                <text id="EPYC霄龙处理器" font-family="PingFangSC-Semibold, PingFang SC" font-size="18.8666667" font-weight="500" line-spacing="37.7333333" fill="#FFFFFF">
+                    <tspan x="443.366667" y="114.333333">EPYC霄龙处理器</tspan>
+                </text>
+                <text id="7.68T-NVME*4" font-family="PingFangSC-Semibold, PingFang SC" font-size="18.8666667" font-weight="500" line-spacing="37.7333333" fill="#FFFFFF">
+                    <tspan x="444.781667" y="325.64">7.68T NVME*4</tspan>
+                </text>
+                <text id="根据主网上线规则及时变动" font-family="PingFangSC-Semibold, PingFang SC" font-size="18.8666667" font-weight="500" line-spacing="37.7333333" fill="#FFFFFF">
+                    <tspan x="444.781667" y="536.946667">根据主网上线规则及时变动</tspan>
+                </text>
+                <text id="2.45G处理器*2备份" font-family="PingFangSC-Semibold, PingFang SC" font-size="18.8666667" font-weight="500" line-spacing="37.7333333" fill="#FFFFFF">
+                    <tspan x="21.6966667" y="325.64">2.45G处理器*2</tspan>
+                </text>
+                <text id="满⾜频发读写需求" font-family="PingFangSC-Semibold, PingFang SC" font-size="18.8666667" font-weight="500" line-spacing="37.7333333" fill="#FFFFFF">
+                    <tspan x="21.6966667" y="536.946667">满⾜频发读写需求</tspan>
+                </text>
+                <path d="M8.52651283e-14,8.52651283e-14 L343.373333,8.52651283e-14 L343.373333,169.8 L8.52651283e-14,169.8 L8.52651283e-14,8.52651283e-14 Z" id="矩形备份-127" stroke="#9BB9A5" stroke-width="1.88666667" stroke-dasharray="3.773333333333333"></path>
+                <path d="M8.52651283e-14,211.306667 L343.373333,211.306667 L343.373333,381.106667 L8.52651283e-14,381.106667 L8.52651283e-14,211.306667 Z" id="矩形备份-129" stroke="#9BB9A5" stroke-width="1.88666667" stroke-dasharray="3.773333333333333"></path>
+                <path d="M8.52651283e-14,422.613333 L343.373333,422.613333 L343.373333,592.413333 L8.52651283e-14,592.413333 L8.52651283e-14,422.613333 Z" id="矩形备份-131" stroke="#9BB9A5" stroke-width="1.88666667" stroke-dasharray="3.773333333333333"></path>
+                <path d="M403.746667,8.52651283e-14 L747.12,8.52651283e-14 L747.12,169.8 L403.746667,169.8 L403.746667,8.52651283e-14 Z" id="矩形备份-128" stroke="#9BB9A5" stroke-width="1.88666667" stroke-dasharray="3.773333333333333"></path>
+                <path d="M403.746667,211.306667 L747.12,211.306667 L747.12,381.106667 L403.746667,381.106667 L403.746667,211.306667 Z" id="矩形备份-130" stroke="#9BB9A5" stroke-width="1.88666667" stroke-dasharray="3.773333333333333"></path>
+                <path d="M403.746667,422.613333 L747.12,422.613333 L747.12,592.413333 L403.746667,592.413333 L403.746667,422.613333 Z" id="矩形备份-132" stroke="#9BB9A5" stroke-width="1.88666667" stroke-dasharray="3.773333333333333"></path>
+                <rect id="矩形" fill="#2ECC4F" x="20.7533333" y="30.1866667" width="281.113333" height="3.77333333"></rect>
+                <rect id="矩形备份-56" fill="#48C9FA" x="443.366667" y="241.493333" width="281.113333" height="3.77333333"></rect>
+                <rect id="矩形备份-58" fill="#CC7B2E" x="443.366667" y="452.8" width="281.113333" height="3.77333333"></rect>
+                <rect id="矩形备份-55" fill="#2ECC4F" x="443.366667" y="30.1866667" width="281.113333" height="3.77333333"></rect>
+                <rect id="矩形备份-57" fill="#48C9FA" x="21.6966667" y="241.493333" width="281.113333" height="3.77333333"></rect>
+                <rect id="矩形备份-59" fill="#CC7B2E" x="21.6966667" y="452.8" width="281.113333" height="3.77333333"></rect>
+            </g>
+        </g>
+    </g>
+</svg>
