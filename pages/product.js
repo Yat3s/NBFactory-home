@@ -7,11 +7,13 @@ import styles from '../styles/Product.module.css'
 import ReactPlayer from 'react-player';
 
 const productItemInterval = 100;
+let videoPlaying = false;
 
 function onLeave(origin, destination, direction) {
     let reachingIndex = destination.index;
 
     if (reachingIndex == 4) {
+        videoPlaying = true;
         const videoElement = document.getElementById('nbVideoId').getElementsByTagName('video')[0];
         videoElement.setAttribute('data-autoplay', '')
         videoElement.play();
@@ -317,7 +319,7 @@ export default function Product() {
                                                 muted: true
                                             }
                                         }
-                                    }} muted={true} width='100%' height='auto' url="videos/NB.mp4" playing={true} style={{ pointerEvents: 'none' }} />
+                                    }} muted={true} width='100%' height='auto' url="videos/NB.mp4" playing={videoPlaying} style={{ pointerEvents: 'none' }} />
                                 </div>
                             </div>
                         </div>
