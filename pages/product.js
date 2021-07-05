@@ -4,20 +4,12 @@ import NBHead from '../components/head'
 import Image from 'next/image'
 import ReactFullpage from '@fullpage/react-fullpage';
 import styles from '../styles/Product.module.css'
+import ReactPlayer from 'react-player';
 
 const productItemInterval = 100;
 
 function onLeave(origin, destination, direction) {
-    const leavingIndex = origin.index;
-    let reachingIndex = 0;
-    if (direction == 'down') {
-        reachingIndex = leavingIndex + 1;
-    } else {
-        reachingIndex = leavingIndex - 1;
-    }
-
-
-    console.log("Leaving section " + origin.index + ',' + direction + ', ' + reachingIndex);
+    let reachingIndex = destination.index;
 }
 
 function animateProduct(productListId, productImgId, productTitleId) {
@@ -311,7 +303,8 @@ export default function Product() {
                         {/* TBD */}
                         <div className="section">
                             <div className={styles.sectionContainer}>
-                                <div style={{ marginTop: '92px', height: '957px', width: '1920px', backgroundColor: '#1A723E' }}>
+                                <div style={{ maxWidth: '1400px', marginTop: '92px' }}>
+                                    <ReactPlayer width='100%' height='auto' url="videos/NB.mp4" playing={true} />
                                 </div>
                             </div>
                         </div>

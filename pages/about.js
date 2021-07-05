@@ -11,13 +11,15 @@ import animNB4 from "/public/animations/nb_4.json";
 
 import ReactFullpage from '@fullpage/react-fullpage';
 import styles from '../styles/About.module.css'
+import ReactPlayer from 'react-player';
 
 let animMapStop = true;
-let animNB1Stop = true;
-let animNB2Stop = true;
-let animNB3Stop = true;
-let animNB4Stop = true;
 let animGrowthStop = true;
+
+let videoNB1Playing = false;
+let videoNB2Playing = false;
+let videoNB3Playing = false;
+let videoNB4Playing = false;
 
 function animationShouldStop(targetIndex, leavingIndex, direction) {
     if (targetIndex == 0 || leavingIndex == targetIndex) {
@@ -35,14 +37,15 @@ function animationShouldStop(targetIndex, leavingIndex, direction) {
 function onLeave(origin, destination, direction) {
     const leavingIndex = origin.index;
     animMapStop = animationShouldStop(1, leavingIndex, direction);
-    animNB1Stop = animationShouldStop(2, leavingIndex, direction);
-    animNB2Stop = animationShouldStop(3, leavingIndex, direction);
-    animNB3Stop = animationShouldStop(4, leavingIndex, direction);
-    animNB4Stop = animationShouldStop(5, leavingIndex, direction);
     animGrowthStop = animationShouldStop(6, leavingIndex, direction);
 
+    let reachingIndex = destination.index;
+    videoNB1Playing = reachingIndex == 2;
+    videoNB2Playing = reachingIndex == 3;
+    videoNB3Playing = reachingIndex == 4;
+    videoNB4Playing = reachingIndex == 5;
 
-    console.log("Leaving section " + origin.index + ',' + direction);
+    console.log("Leaving section " + videoNB1Playing);
 }
 
 function afterLoad(origin, destination, direction) {
@@ -75,39 +78,6 @@ export default function About() {
         loop: true,
         autoplay: true,
         animationData: animMap,
-        rendererSettings: {
-            preserveAspectRatio: "xMidYMid slice",
-        },
-    };
-
-    const NB1LottieOptions = {
-        loop: true,
-        autoplay: true,
-        animationData: animNB1,
-        rendererSettings: {
-            preserveAspectRatio: "xMidYMid slice",
-        },
-    };
-    const NB2LottieOptions = {
-        loop: true,
-        autoplay: true,
-        animationData: animNB2,
-        rendererSettings: {
-            preserveAspectRatio: "xMidYMid slice",
-        },
-    };
-    const NB3LottieOptions = {
-        loop: true,
-        autoplay: true,
-        animationData: animNB3,
-        rendererSettings: {
-            preserveAspectRatio: "xMidYMid slice",
-        },
-    };
-    const NB4LottieOptions = {
-        loop: true,
-        autoplay: true,
-        animationData: animNB4,
         rendererSettings: {
             preserveAspectRatio: "xMidYMid slice",
         },
@@ -178,26 +148,34 @@ export default function About() {
                         </div>
 
                         <div className="section">
-                            <div>
-                                <Lottie isStopped={animNB1Stop} options={NB1LottieOptions} isClickToPauseDisabled></Lottie>
+                            <div className={styles.sectionContainer}>
+                                <div style={{ maxWidth: '1920px' }}>
+                                    <ReactPlayer width='100%' height='auto' url="videos/supply_1.mp4" playing={videoNB1Playing} />
+                                </div>
                             </div>
                         </div>
 
                         <div className="section">
-                            <div>
-                                <Lottie isStopped={animNB2Stop} options={NB2LottieOptions} isClickToPauseDisabled></Lottie>
+                            <div className={styles.sectionContainer}>
+                                <div style={{ maxWidth: '1920px' }}>
+                                    <ReactPlayer width='100%' height='auto' url="videos/supply_2.mp4" playing={videoNB2Playing} />
+                                </div>
                             </div>
                         </div>
 
                         <div className="section">
-                            <div>
-                                <Lottie isStopped={animNB3Stop} options={NB3LottieOptions} isClickToPauseDisabled></Lottie>
+                            <div className={styles.sectionContainer}>
+                                <div style={{ maxWidth: '1920px' }}>
+                                    <ReactPlayer width='100%' height='auto' url="videos/supply_3.mp4" playing={videoNB3Playing} />
+                                </div>
                             </div>
                         </div>
 
                         <div className="section">
-                            <div>
-                                <Lottie isStopped={animNB4Stop} options={NB4LottieOptions} isClickToPauseDisabled></Lottie>
+                            <div className={styles.sectionContainer}>
+                                <div style={{ maxWidth: '1920px' }}>
+                                    <ReactPlayer width='100%' height='auto' url="videos/supply_4.mp4" playing={videoNB4Playing} />
+                                </div>
                             </div>
                         </div>
 

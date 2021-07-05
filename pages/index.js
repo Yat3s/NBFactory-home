@@ -8,15 +8,7 @@ import ReactFullpage from '@fullpage/react-fullpage';
 import ReactPlayer from 'react-player';
 
 function onLeave(origin, destination, direction) {
-  const leavingIndex = origin.index;
-  let reachingIndex = 0;
-  if (direction == 'down') {
-    reachingIndex = leavingIndex + 1;
-  } else {
-    reachingIndex = leavingIndex - 1;
-  }
-
-  console.log("Leaving section " + origin.index + ',' + direction + ', ' + reachingIndex);
+  let reachingIndex = destination.index;
 }
 
 function afterLoad(origin, destination, direction) {
@@ -111,8 +103,8 @@ export default function Home() {
                         </p>
                       </div>
                     </div>
-                    <div style={{marginTop: '80px'}}>
-                      <ReactPlayer width='1400px' height='auto' url="images/NB.mp4" playing={true} />
+                    <div style={{ maxWidth: '70%'}}>
+                      <ReactPlayer width='100%' height='auto' url="videos/home.mov" playing={true} />
                     </div>
 
                   </div>
@@ -126,8 +118,8 @@ export default function Home() {
                 <div className={styles.sectionContainer}>
 
                   <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <div id='missionImg' style={{ opacity: 0, width: 563 + 'px', height: 850 + 'px' }}>
-                      <Image src='/images/img_mission.png' width={563} height={850}></Image>
+                    <div id='missionImg' style={{ opacity: 0, width: '563px', height: '850px' }}>
+                      <Image src='/images/img_mission.png' layout='fill' objectFit='scale-down' ></Image>
                     </div>
 
                     <div style={{ position: 'relative', marginLeft: 47 + 'px' }}>
