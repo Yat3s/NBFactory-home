@@ -10,6 +10,12 @@ const productItemInterval = 100;
 
 function onLeave(origin, destination, direction) {
     let reachingIndex = destination.index;
+
+    if (reachingIndex == 4) {
+        const videoElement = document.getElementById('nbVideoId').getElementsByTagName('video')[0];
+        videoElement.setAttribute('data-autoplay', '')
+        videoElement.play();
+    }
 }
 
 function animateProduct(productListId, productImgId, productTitleId) {
@@ -300,11 +306,18 @@ export default function Product() {
                             </div>
                         </div>
 
-                        {/* TBD */}
+                        {/* NB video */}
                         <div className="section">
                             <div className={styles.sectionContainer}>
-                                <div style={{ maxWidth: '1400px', marginTop: '92px' }}>
-                                    <ReactPlayer width='100%' height='auto' url="videos/NB.mp4" playing={true} />
+                                <div style={{ maxWidth: '1400px'}}>
+                                    <ReactPlayer id='nbVideoId' config={{
+                                        file: {
+                                            attributes: {
+                                                autoPlay: true,
+                                                muted: true
+                                            }
+                                        }
+                                    }} muted={true} width='100%' height='auto' url="videos/NB.mp4" playing={true} style={{ pointerEvents: 'none' }} />
                                 </div>
                             </div>
                         </div>
