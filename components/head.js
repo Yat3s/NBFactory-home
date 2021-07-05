@@ -15,13 +15,13 @@ export default function NBHead() {
                     </a>
                 </Link>
 
-                <Link href='about'>
+                <Link href='/about'>
                     <a className={styles.menu}>
                         About
                     </a>
                 </Link>
 
-                <Link href='product'>
+                <Link href='/product'>
                     <a className={styles.menu}>
                         Product
                     </a>

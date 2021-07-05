@@ -4,10 +4,6 @@ import Image from 'next/image'
 import Lottie from "react-lottie";
 import animMap from "/public/animations/anim_map.json";
 import animGrowth from "/public/animations/anim_growth.json";
-import animNB1 from "/public/animations/nb_1.json";
-import animNB2 from "/public/animations/nb_2.json";
-import animNB3 from "/public/animations/nb_3.json";
-import animNB4 from "/public/animations/nb_4.json";
 
 import ReactFullpage from '@fullpage/react-fullpage';
 import styles from '../styles/About.module.css'
@@ -149,7 +145,7 @@ export default function About() {
 
                         <div className="section">
                             <div className={styles.sectionContainer}>
-                                <div style={{ maxWidth: '1920px' }}>
+                                <div style={{ width: '100%' }}>
                                     <ReactPlayer width='100%' height='auto' url="videos/supply_1.mp4" playing={videoNB1Playing} />
                                 </div>
                             </div>
@@ -157,7 +153,7 @@ export default function About() {
 
                         <div className="section">
                             <div className={styles.sectionContainer}>
-                                <div style={{ maxWidth: '1920px' }}>
+                                <div style={{ width: '100%' }}>
                                     <ReactPlayer width='100%' height='auto' url="videos/supply_2.mp4" playing={videoNB2Playing} />
                                 </div>
                             </div>
@@ -165,7 +161,7 @@ export default function About() {
 
                         <div className="section">
                             <div className={styles.sectionContainer}>
-                                <div style={{ maxWidth: '1920px' }}>
+                                <div style={{ width: '100%' }}>
                                     <ReactPlayer width='100%' height='auto' url="videos/supply_3.mp4" playing={videoNB3Playing} />
                                 </div>
                             </div>
@@ -173,7 +169,7 @@ export default function About() {
 
                         <div className="section">
                             <div className={styles.sectionContainer}>
-                                <div style={{ maxWidth: '1920px' }}>
+                                <div style={{ width: '100%' }}>
                                     <ReactPlayer width='100%' height='auto' url="videos/supply_4.mp4" playing={videoNB4Playing} />
                                 </div>
                             </div>
