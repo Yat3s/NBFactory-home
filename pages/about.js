@@ -130,7 +130,7 @@ export default function About() {
 
                                 <div className={styles.center} >
                                     <div id='profileLogo' className={styles.profileLogo} >
-                                        <Image src='/images/introduction.svg' width={1920} height={390} />
+                                        <Image src='/images/img_introduction.svg' width={1920} height={390} />
                                     </div>
                                 </div>
 
