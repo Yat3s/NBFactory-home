@@ -5,17 +5,18 @@ import NBHead from '../components/head'
 import ReactFullpage from '@fullpage/react-fullpage';
 import ReactPlayer from 'react-player';
 
+const startIndex = 3;
+const stepPx = 360;
+
 function onLeave(origin, destination, direction) {
-  const startIndex = 3;
-  const stepPx = 360;
   let reachingIndex = destination.index;
-  let top = '200%';
+  let top = -1;
   let transition = 'all 1s ease-in';
   let highlightIndex = 0;
   let opacity = 0;
   if (reachingIndex >= startIndex) {
     const offset = reachingIndex - startIndex
-    top = -offset * stepPx + 'px';
+    top = -offset * stepPx;
     transition = 'all 1s ease-out';
     highlightIndex = offset + 1;
     opacity = 1;
@@ -24,16 +25,27 @@ function onLeave(origin, destination, direction) {
     fadeIn('cardPageSubtitle' + (offset + 1), 100, 'animate__fadeInUpBig');
     fadeIn('cardPageContent' + + (offset + 1), 250, 'animate__fadeInUpBig');
   } else {
-    top = '200%';
+    top = -1;
     transition = 'all 500ms ease';
     opacity = 0;
   }
-  const cardPanel = document.getElementById('cardPanel');
-  cardPanel.style.top = top;
-  cardPanel.style.transition = transition;
-  cardPanel.style.opacity = opacity;
 
-  const highlightCards = document.getElementById('highlightCardPanel').childNodes;
+  const cardPanel1 = document.getElementById('cardPanel1');
+  cardPanel1.style.transition = transition;
+  cardPanel1.style.opacity = opacity;
+  cardPanel1.style.top = top == -1 ? '200%' : parseInt(top * 1.5) + 'px';
+
+  const cardPanel2 = document.getElementById('cardPanel2');
+  cardPanel2.style.transition = transition;
+  cardPanel2.style.opacity = opacity;
+  cardPanel2.style.top = top == -1 ? '200%' : parseInt(top * 2) + 'px';
+
+  const cardPanel3 = document.getElementById('cardPanel3');
+  cardPanel3.style.transition = transition;
+  cardPanel3.style.opacity = opacity;
+  cardPanel3.style.top = top == -1 ? '200%' : top + 'px';
+
+  const highlightCards = cardPanel3.childNodes;
   for (const [idx, card] of highlightCards.entries()) {
     if (idx == highlightIndex) {
       card.style.filter = 'brightness(100%)';
@@ -42,6 +54,8 @@ function onLeave(origin, destination, direction) {
     }
   }
 }
+
+
 
 function afterLoad(origin, destination, direction) {
   const loadIndex = destination.index;
@@ -87,104 +101,127 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div id='cardPanel' style={{ display: 'flex', position: 'absolute', top: '200%', left: '-120px', zIndex: 1, transition: 'all 500ms ease' }}>
-        <div style={{ marginTop: '-1180px', display: 'flex', flexDirection: 'column' }}>
-          <div className={styles.card} >
-            <Image src='/images/card1.png' width={240} height={358}></Image>
-          </div>
-          <div className={styles.card} >
-            <Image src='/images/card2.png' width={240} height={358}></Image>
-          </div>
-          <div className={styles.card} >
-            <Image src='/images/card3.png' width={240} height={358}></Image>
-          </div>
-          <div className={styles.card} >
-            <Image src='/images/card4.png' width={240} height={330}></Image>
-          </div>
-          <div className={styles.card} >
-            <Image src='/images/card5.png' width={240} height={358}></Image>
-          </div>
-          <div className={styles.card} >
-            <Image src='/images/card6.png' width={240} height={358}></Image>
-          </div>
-          <div className={styles.card} >
-            <Image src='/images/card7.png' width={240} height={730}></Image>
-          </div>
-          <div className={styles.card} >
-            <Image src='/images/card1.png' width={240} height={358}></Image>
-          </div>
-          <div className={styles.card} >
-            <Image src='/images/card2.png' width={240} height={358}></Image>
-          </div>
-          <div className={styles.card} >
-            <Image src='/images/card3.png' width={240} height={358}></Image>
-          </div>
+      <div id='cardPanel1' className={styles.cardPanel} style={{ marginTop: '-1120px', left: '-120px' }}>
+        <div className={styles.card} >
+          <Image src='/images/card1.png' width={240} height={358}></Image>
         </div>
-
-        <div style={{ marginLeft: '40px', marginTop: '-720px', display: 'flex', flexDirection: 'column' }}>
-          <div className={styles.card} >
-            <Image src='/images/card1.png' width={240} height={358}></Image>
-          </div>
-          <div className={styles.card} >
-            <Image src='/images/card2.png' width={240} height={358}></Image>
-          </div>
-          <div className={styles.card} >
-            <Image src='/images/card3.png' width={240} height={358}></Image>
-          </div>
-          <div className={styles.card} >
-            <Image src='/images/card4.png' width={240} height={330}></Image>
-          </div>
-          <div className={styles.card} >
-            <Image src='/images/card5.png' width={240} height={358}></Image>
-          </div>
-          <div className={styles.card} >
-            <Image src='/images/card6.png' width={240} height={358}></Image>
-          </div>
-          <div className={styles.card} >
-            <Image src='/images/card7.png' width={240} height={730}></Image>
-          </div>
-          <div className={styles.card} >
-            <Image src='/images/card1.png' width={240} height={358}></Image>
-          </div>
-          <div className={styles.card} >
-            <Image src='/images/card2.png' width={240} height={358}></Image>
-          </div>
-          <div className={styles.card} >
-            <Image src='/images/card3.png' width={240} height={358}></Image>
-          </div>
+        <div className={styles.card} >
+          <Image src='/images/card2.png' width={240} height={358}></Image>
         </div>
+        <div className={styles.card} >
+          <Image src='/images/card3.png' width={240} height={358}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card4.png' width={240} height={330}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card5.png' width={240} height={358}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card6.png' width={240} height={358}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card7.png' width={240} height={730}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card1.png' width={240} height={358}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card2.png' width={240} height={358}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card3.png' width={240} height={358}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card4.png' width={240} height={330}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card5.png' width={240} height={358}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card6.png' width={240} height={358}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card7.png' width={240} height={730}></Image>
+        </div>
+      </div>
 
-        <div id='highlightCardPanel' style={{ marginLeft: '40px', marginTop: '-180px', display: 'flex', flexDirection: 'column' }}>
-          <div className={styles.card} >
-            <Image src='/images/card1.png' width={240} height={358}></Image>
-          </div>
-          <div className={styles.card} >
-            <Image src='/images/card2.png' width={240} height={358}></Image>
-          </div>
-          <div className={styles.card} >
-            <Image src='/images/card3.png' width={240} height={358}></Image>
-          </div>
-          <div className={styles.card} >
-            <Image src='/images/card4.png' width={240} height={330}></Image>
-          </div>
-          <div className={styles.card} >
-            <Image src='/images/card5.png' width={240} height={358}></Image>
-          </div>
-          <div className={styles.card} >
-            <Image src='/images/card6.png' width={240} height={358}></Image>
-          </div>
-          <div className={styles.card} >
-            <Image src='/images/card7.png' width={240} height={730}></Image>
-          </div>
-          <div className={styles.card} >
-            <Image src='/images/card1.png' width={240} height={358}></Image>
-          </div>
-          <div className={styles.card} >
-            <Image src='/images/card2.png' width={240} height={358}></Image>
-          </div>
-          <div className={styles.card} >
-            <Image src='/images/card3.png' width={240} height={358}></Image>
-          </div>
+
+      <div id='cardPanel2' className={styles.cardPanel} style={{marginTop: '-720px', left: '160px' }}>
+        <div className={styles.card} >
+          <Image src='/images/card1.png' width={240} height={358}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card2.png' width={240} height={358}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card3.png' width={240} height={358}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card4.png' width={240} height={330}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card5.png' width={240} height={358}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card6.png' width={240} height={358}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card7.png' width={240} height={730}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card1.png' width={240} height={358}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card2.png' width={240} height={358}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card3.png' width={240} height={358}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card4.png' width={240} height={330}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card5.png' width={240} height={358}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card6.png' width={240} height={358}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card7.png' width={240} height={730}></Image>
+        </div>
+      </div>
+
+      <div id='cardPanel3' className={styles.cardPanel} style={{marginTop: '-120px', left: '440px' }}>
+        <div className={styles.card} >
+          <Image src='/images/card1.png' width={240} height={358}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card2.png' width={240} height={358}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card3.png' width={240} height={358}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card4.png' width={240} height={330}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card5.png' width={240} height={358}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card6.png' width={240} height={358}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card7.png' width={240} height={730}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card1.png' width={240} height={358}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card2.png' width={240} height={358}></Image>
+        </div>
+        <div className={styles.card} >
+          <Image src='/images/card3.png' width={240} height={358}></Image>
         </div>
       </div>
 

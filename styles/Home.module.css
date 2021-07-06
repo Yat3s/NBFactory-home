@@ -114,6 +114,16 @@
   transition: all 1s ease;
 }
 
+.cardPanel {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 200%;
+  z-index: 1;
+  transition: all 500ms ease;
+  width: 240px;
+}
+
 .cardPageTitle {
   font-size: 60px;
   font-family: PingFangSC-Semibold, PingFang SC;
