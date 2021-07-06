@@ -6,7 +6,41 @@ import ReactFullpage from '@fullpage/react-fullpage';
 import ReactPlayer from 'react-player';
 
 function onLeave(origin, destination, direction) {
+  const startIndex = 3;
+  const stepPx = 360;
   let reachingIndex = destination.index;
+  let top = '200%';
+  let transition = 'all 1s ease-in';
+  let highlightIndex = 0;
+  let opacity = 0;
+  if (reachingIndex >= startIndex) {
+    const offset = reachingIndex - startIndex
+    top = -offset * stepPx + 'px';
+    transition = 'all 1s ease-out';
+    highlightIndex = offset + 1;
+    opacity = 1;
+
+    fadeIn('cardPageTitle' + (offset + 1), 0, 'animate__fadeInUpBig');
+    fadeIn('cardPageSubtitle' + (offset + 1), 100, 'animate__fadeInUpBig');
+    fadeIn('cardPageContent' + + (offset + 1), 250, 'animate__fadeInUpBig');
+  } else {
+    top = '200%';
+    transition = 'all 500ms ease';
+    opacity = 0;
+  }
+  const cardPanel = document.getElementById('cardPanel');
+  cardPanel.style.top = top;
+  cardPanel.style.transition = transition;
+  cardPanel.style.opacity = opacity;
+
+  const highlightCards = document.getElementById('highlightCardPanel').childNodes;
+  for (const [idx, card] of highlightCards.entries()) {
+    if (idx == highlightIndex) {
+      card.style.filter = 'brightness(100%)';
+    } else {
+      card.style.filter = 'brightness(30%)';
+    }
+  }
 }
 
 function afterLoad(origin, destination, direction) {
@@ -53,9 +87,110 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <div id='cardPanel' style={{ display: 'flex', position: 'absolute', top: '200%', left: '-120px', zIndex: 1, transition: 'all 500ms ease' }}>
+        <div style={{ marginTop: '-1180px', display: 'flex', flexDirection: 'column' }}>
+          <div className={styles.card} >
+            <Image src='/images/card1.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card2.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card3.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card4.png' width={240} height={330}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card5.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card6.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card7.png' width={240} height={730}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card1.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card2.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card3.png' width={240} height={358}></Image>
+          </div>
+        </div>
+
+        <div style={{ marginLeft: '40px', marginTop: '-720px', display: 'flex', flexDirection: 'column' }}>
+          <div className={styles.card} >
+            <Image src='/images/card1.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card2.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card3.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card4.png' width={240} height={330}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card5.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card6.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card7.png' width={240} height={730}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card1.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card2.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card3.png' width={240} height={358}></Image>
+          </div>
+        </div>
+
+        <div id='highlightCardPanel' style={{ marginLeft: '40px', marginTop: '-180px', display: 'flex', flexDirection: 'column' }}>
+          <div className={styles.card} >
+            <Image src='/images/card1.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card2.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card3.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card4.png' width={240} height={330}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card5.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card6.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card7.png' width={240} height={730}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card1.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card2.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card3.png' width={240} height={358}></Image>
+          </div>
+        </div>
+      </div>
+
       <ReactFullpage
         scrollOverflow={true}
-        sectionsColor={["#081508", "#081508", "#081508", "#081508"]}
+        sectionsColor={["#081508", "#081508", "#081508", "#132B11", "#0F260E", "#0C210B", "#091C08", "#081807", "#061505"]}
         onLeave={onLeave.bind(this)}
         afterLoad={afterLoad.bind(this)}
         anchors={['Home', 'Mission', 'SuperLinkage', 'TBD']}
@@ -63,7 +198,9 @@ export default function Home() {
         navigationTooltips={['Home', 'Mission', 'SuperLinkage', 'TBD']}
         render={({ state, fullpageApi }) => {
           return (
-            <div id="fullpage-wrapper">
+            <div id="fullpage-wrapper" >
+
+
 
               {/* NB 超级工厂 */}
               <div className="section section1">
@@ -183,11 +320,111 @@ export default function Home() {
 
 
               <div className="section">
-                <div className={styles.sectionContainer}>
-                  <div style={{ marginTop: '200px', backgroundColor: '#132B11', width: '100%', height: '800px' }}>
-                    <span style={{ fontSize: '100px' }}>TBD, animation</span>
-                  </div>
+                <div style={{ marginLeft: '600px' }} className={styles.sectionContainer}>
+                  <div>
+                    <div id='cardPageTitle1' className={styles.cardPageTitle}>
+                      供应链<span style={{ color: '#2ECC4F' }}>金融</span>
+                    </div>
 
+                    <div id='cardPageSubtitle1' className={styles.cardPageSubtitle}>
+                      FilNB
+                    </div>
+
+                    <div id='cardPageContent1' className={styles.cardPageContent}>
+                      超级工厂的核心引擎；提供场景. 技术. 资本. 用户. 算力. 数据等全维角度的多选项、深合作的超级供应网。对高价值资产、强稀缺资源在备货量级、速度、渠道层面均具有超级优势。
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div className="section">
+                <div style={{ marginLeft: '600px' }} className={styles.sectionContainer}>
+                  <div>
+                    <div id='cardPageTitle2' className={styles.cardPageTitle}>
+                      <span style={{ color: '#2ECC4F' }}>技术</span>服务商
+                    </div>
+
+                    <div id='cardPageSubtitle2' className={styles.cardPageSubtitle}>
+                      FounCode
+                    </div>
+
+                    <div id='cardPageContent2' className={styles.cardPageContent}>
+                      超级工厂的生产车间；除IPFS外，还高度关注于CHIA、SWARM、MASS、NFT、DFINITY等多生态项目。重点生产线在元器硬件.算法软件. 集群维护等方面均占据行业领先地位，可快速调度，提供全球云算力. 全球IDC支持。</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="section">
+                <div style={{ marginLeft: '600px' }} className={styles.sectionContainer}>
+                  <div>
+                    <div id='cardPageTitle3' className={styles.cardPageTitle}>
+                      超级<span style={{ color: '#2ECC4F' }}>基金会</span>
+                    </div>
+
+                    <div id='cardPageSubtitle3' className={styles.cardPageSubtitle}>
+                      eXmit
+                    </div>
+
+                    <div id='cardPageContent3' className={styles.cardPageContent}>
+                      超级工厂的强大外援；对工厂目标意向生态或项目进行商业与科学 两大角度的背调、评估、投资与协作运营，为工厂系统内成员提供 各类服务与背书。合作全球头部基金会，为超级工厂的战略布局 持续推进。</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="section">
+                <div style={{ marginLeft: '600px' }} className={styles.sectionContainer}>
+                  <div>
+                    <div id='cardPageTitle4' className={styles.cardPageTitle}>
+                      <span style={{ color: '#2ECC4F' }}>超级</span>实验室
+                    </div>
+
+                    <div id='cardPageSubtitle4' className={styles.cardPageSubtitle}>
+                      LNBS
+                    </div>
+
+                    <div id='cardPageContent4' className={styles.cardPageContent}>
+                      超级工厂的核级武器；对内，投入资金培养实验室专业科研队伍，
+                      加速系统工具和服务的开发，提高工厂技术壁垒。对外，发现技术
+                      基因占有优势的明星项目进行孵化和培育，实现成熟项目的立案
+                      发币，升级工厂中坚力量。</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="section">
+                <div style={{ marginLeft: '600px' }} className={styles.sectionContainer}>
+                  <div>
+                    <div id='cardPageTitle5' className={styles.cardPageTitle}>
+                      超级<span style={{ color: '#2ECC4F' }}>社区家</span>
+                    </div>
+
+                    <div id='cardPageSubtitle5' className={styles.cardPageSubtitle}>
+                      NBer
+                    </div>
+
+                    <div id='cardPageContent5' className={styles.cardPageContent}>
+                      超级工厂的团结工会；每一处脉络都有细节，每一处服务都有用心。品牌旨在为矿工端提供教育内容，为用户端提供推广平台，为合作
+                      端提供情感联系。用内容与回报重塑系统成员未来共识基因。</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="section">
+                <div style={{ marginLeft: '600px' }} className={styles.sectionContainer}>
+                  <div>
+                    <div id='cardPageTitle6' className={styles.cardPageTitle}>
+                      <span style={{ color: '#2ECC4F' }}>数字</span>IP版权
+                    </div>
+
+                    <div id='cardPageSubtitle6' className={styles.cardPageSubtitle}>
+                      NBU
+                    </div>
+
+                    <div id='cardPageContent6' className={styles.cardPageContent}>
+                      超级工厂的厂牌之光；所有NBU成员均可在NB universal内申领虚拟身份和形象，突破次元进行互动，打造属于自己的项目IP. 真人IP.
+                      内容IP. 偶像IP。</div>
+                  </div>
                 </div>
               </div>
 
