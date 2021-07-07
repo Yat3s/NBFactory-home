@@ -16,6 +16,7 @@ let videoNB1Playing = false;
 let videoNB2Playing = false;
 let videoNB3Playing = false;
 let videoNB4Playing = false;
+let astronomicalPlaying = false;
 
 function animationShouldStop(targetIndex, leavingIndex, direction) {
     if (targetIndex == 0 || leavingIndex == targetIndex) {
@@ -51,6 +52,10 @@ function onLeave(origin, destination, direction) {
     if (reachingIndex == 5) {
         videoNB4Playing = true;
         playVideoWhenReachingSection('nb4VideoId');
+    }
+    if (reachingIndex == 6) {
+        astronomicalPlaying = true;
+        playVideoWhenReachingSection('astronomical');
     }
 
     console.log("Leaving section " + videoNB1Playing);
@@ -228,6 +233,21 @@ export default function About() {
                         </div>
 
                         <div className="section">
+                        <div className={styles.sectionContainer}>
+                                <div style={{ width: '100%' }}>
+                                <ReactPlayer id='astronomical' config={{
+                                        file: {
+                                            attributes: {
+                                                autoPlay: true,
+                                                muted: true
+                                            }
+                                        }
+                                    }} muted={true} width='100%' height='auto' url="videos/astronomical.mp4" playing={astronomicalPlaying} style={{ pointerEvents: 'none' }} />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="section">
                             <div style={{ marginTop: '200px', backgroundColor: '#1A723E', width: '100%', height: '800px' }}>
                                 <span style={{ fontSize: '100px' }}>SINSO, Animation</span>
                             </div>
@@ -237,38 +257,5 @@ export default function About() {
                 );
             }}
         />
-
-        <main style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-            <div style={{ width: '100%', marginTop: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <Image src='/images/img_introduce.png' width={1920} height={392} />
-            </div>
-
-            <div style={{ maxWidth: '960px', marginTop: '90px' }}>
-                <span style={{ color: '#FEFEFE', opacity: '0.6', fontSize: '20px' }}>
-                    Company Profile
-                </span>
-
-                <div style={{ fontSize: '40px', fontWeight: 'bold', marginTop: '12px' }}>
-                    公司介绍
-                </div>
-
-                <div style={{ fontSize: '20px', color: '#FEFEFE', lineHeight: '40px', marginTop: '24px' }}>
-                    超级工厂总部坐标上海区块链技术创新与产业基地。我们的团队深耕区块链领域多年，致力于夯实底层基础 建设，推动生态应用落地，为各需求客户提供法律、风控、政策、技术等方面的权威指导与一手服务。未来， 超级工厂将在舟山、海南、新加坡、瑞士等多地设立办公室，为全球算力、全球IDC布局创建更健康的共识内大系统支持。
-                </div>
-            </div>
-
-
-            <div style={{}}>
-                <Image src='/images/img_bg_map.png' width={1920} height={947}></Image>
-            </div>
-
-            {/* SINSO */}
-            <div style={{ marginTop: '200px', backgroundColor: '#1A723E', width: '100%', height: '800px' }}>
-                <span style={{ fontSize: '100px' }}>SINSO, Animation</span>
-            </div>
-
-        </main>
-
-
     </div >
 }
