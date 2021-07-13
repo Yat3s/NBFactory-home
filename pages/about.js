@@ -17,6 +17,9 @@ let videoNB2Playing = false;
 let videoNB3Playing = false;
 let videoNB4Playing = false;
 let astronomicalPlaying = false;
+let sinsoPlaying = false;
+let ipgroupPlaying = false;
+let banbikPlaying = false;
 
 function animationShouldStop(targetIndex, leavingIndex, direction) {
     if (targetIndex == 0 || leavingIndex == targetIndex) {
@@ -56,6 +59,18 @@ function onLeave(origin, destination, direction) {
     if (reachingIndex == 6) {
         astronomicalPlaying = true;
         playVideoWhenReachingSection('astronomical');
+    }
+    if (reachingIndex == 7) {
+        sinsoPlaying = true;
+        playVideoWhenReachingSection('sinso');
+    }
+    if (reachingIndex == 8) {
+        ipgroupPlaying = true;
+        playVideoWhenReachingSection('ipgroup');
+    }
+    if (reachingIndex == 9) {
+        banbikPlaying = true;
+        playVideoWhenReachingSection('banbik');
     }
 
     console.log("Leaving section " + videoNB1Playing);
@@ -103,7 +118,7 @@ export default function About() {
     };
 
     const growthLottieOptions = {
-        loop: true,
+        loop: false,
         autoplay: true,
         animationData: animGrowth,
         rendererSettings: {
@@ -134,14 +149,13 @@ export default function About() {
                                 <NBHead />
 
                                 <div className={styles.center} >
-                                    <div id='profileLogo' className={styles.profileLogo} >
-                                        <Image src='/images/img_introduction.svg' width={1920} height={390} />
+                                    <div id='profileLogo' style={{ marginTop: '40px', width: '100vw', height: '20vh' }} className={styles.profileLogo} >
+                                        <Image src='/images/img_introduction.svg' layout='fill' />
                                     </div>
                                 </div>
 
-
                                 <div style={{ height: '100%' }} className={styles.center}>
-                                    <div id='profileContent' style={{ opacity: 0, maxWidth: '960px', marginTop: '168px' }}>
+                                    <div id='profileContent' style={{ opacity: 0, maxWidth: '960px', margin: '10vh' }}>
                                         <span style={{ color: '#FEFEFE', opacity: '0.6', fontSize: '20px' }}>
                                             Company Profile
                                         </span>
@@ -184,7 +198,7 @@ export default function About() {
                         <div className="section">
                             <div className={styles.sectionContainer}>
                                 <div style={{ width: '100%' }}>
-                                <ReactPlayer id='nb2VideoId' config={{
+                                    <ReactPlayer id='nb2VideoId' config={{
                                         file: {
                                             attributes: {
                                                 autoPlay: true,
@@ -199,7 +213,7 @@ export default function About() {
                         <div className="section">
                             <div className={styles.sectionContainer}>
                                 <div style={{ width: '100%' }}>
-                                <ReactPlayer id='nb3VideoId' config={{
+                                    <ReactPlayer id='nb3VideoId' config={{
                                         file: {
                                             attributes: {
                                                 autoPlay: true,
@@ -214,7 +228,7 @@ export default function About() {
                         <div className="section">
                             <div className={styles.sectionContainer}>
                                 <div style={{ width: '100%' }}>
-                                <ReactPlayer id='nb4VideoId' config={{
+                                    <ReactPlayer id='nb4VideoId' config={{
                                         file: {
                                             attributes: {
                                                 autoPlay: true,
@@ -227,29 +241,68 @@ export default function About() {
                         </div>
 
                         <div className="section">
-                            <div>
+                            <div className={styles.sectionContainer}>
                                 <Lottie isStopped={animGrowthStop} options={growthLottieOptions} isClickToPauseDisabled></Lottie>
                             </div>
                         </div>
 
                         <div className="section">
-                        <div className={styles.sectionContainer}>
+                            <div className={styles.sectionContainer}>
                                 <div style={{ width: '100%' }}>
-                                <ReactPlayer id='astronomical' config={{
+                                    <ReactPlayer id='astronomical' config={{
                                         file: {
                                             attributes: {
                                                 autoPlay: true,
                                                 muted: true
                                             }
                                         }
-                                    }} muted={true} width='100%' height='auto' url="videos/astronomical.mp4" playing={astronomicalPlaying} style={{ pointerEvents: 'none' }} />
+                                    }} muted={true} width='100vw' height='100vh' url="videos/astronomical.mp4" playing={astronomicalPlaying} style={{ pointerEvents: 'none' }} />
                                 </div>
                             </div>
                         </div>
 
                         <div className="section">
-                            <div style={{ marginTop: '200px', backgroundColor: '#1A723E', width: '100%', height: '800px' }}>
-                                <span style={{ fontSize: '100px' }}>SINSO, Animation</span>
+                            <div className={styles.sectionContainer}>
+                                <div style={{ width: '100%' }}>
+                                    <ReactPlayer id='sinso' config={{
+                                        file: {
+                                            attributes: {
+                                                autoPlay: true,
+                                                muted: true
+                                            }
+                                        }
+                                    }} muted={true} width='100vw' height='100vh' url="videos/sinso.mp4" playing={sinsoPlaying} style={{ pointerEvents: 'none' }} />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="section">
+                            <div className={styles.sectionContainer}>
+                                <div style={{ width: '100%' }}>
+                                    <ReactPlayer id='ipgroup' config={{
+                                        file: {
+                                            attributes: {
+                                                autoPlay: true,
+                                                muted: true
+                                            }
+                                        }
+                                    }} muted={true} width='100vw' height='100vh' url="videos/ipgroup.mp4" playing={ipgroupPlaying} style={{ pointerEvents: 'none' }} />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="section">
+                            <div className={styles.sectionContainer}>
+                                <div style={{ width: '100%' }}>
+                                    <ReactPlayer id='banbik' config={{
+                                        file: {
+                                            attributes: {
+                                                autoPlay: true,
+                                                muted: true
+                                            }
+                                        }
+                                    }} muted={true} width='100vw' height='100vh' url="videos/banbik.mp4" playing={banbikPlaying} style={{ pointerEvents: 'none' }} />
+                                </div>
                             </div>
                         </div>
 

@@ -26,4 +26,7 @@
     opacity: 1;
     transition: all 1s ease-out;
     transform: scale(0.2);
+    width: 1920px;
+    max-height: 396px;
+    max-width: 1920px;
 }

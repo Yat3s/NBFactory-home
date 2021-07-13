@@ -121,7 +121,7 @@ export default function Product() {
                                             <div style={{ marginTop: '108px', display: 'flex', alignItems: 'end', fontSize: '44px', color: 'white' }}>
                                                 <div>
                                                     <div className={styles.productEngTitle}>
-                                                        FiNB JI QUN JIA GOU TI GONG YOU ZUI XIN YI DAI Filecoin FEN BU SHI CUN CHU CHAN PIN
+                                                        FilNB JI QUN JIA GOU TI GONG YOU ZUI XIN YI DAI Filecoin FEN BU SHI CUN CHU CHAN PIN
                                                     </div>
                                                     <div >
                                                         FilNB 集群架构提供有最新⼀代Filecoin分布式存储产品
@@ -188,7 +188,7 @@ export default function Product() {
                                         <div style={{ display: 'flex', alignItems: 'end', fontSize: '44px', color: 'white' }}>
                                             <div>
                                                 <div className={styles.productEngTitle}>
-                                                    FiNB JI QUN JIA GOU TI GONG YOU ZUI XIN YI DAI Chia FEN BU SHI CUN CHU CHAN PIN
+                                                    FilNB JI QUN JIA GOU TI GONG YOU ZUI XIN YI DAI Chia FEN BU SHI CUN CHU CHAN PIN
                                                 </div>
                                                 FilNB 集群架构提供有最新⼀代Chia分布式存储产品
                                             </div>
@@ -251,7 +251,7 @@ export default function Product() {
                                         <div style={{ display: 'flex', alignItems: 'end', fontSize: '44px', color: 'white' }}>
                                             <div>
                                                 <div className={styles.productEngTitle}>
-                                                    FiNB JI QUN JIA GOU TI GONG YOU ZUI XIN YI DAI Swarm FEN BU SHI CUN CHU CHAN PIN
+                                                    FilNB JI QUN JIA GOU TI GONG YOU ZUI XIN YI DAI Swarm FEN BU SHI CUN CHU CHAN PIN
                                                 </div>
                                                 FilNB 集群架构提供有最新⼀代Swarm分布式存储产品
                                             </div>
@@ -311,7 +311,7 @@ export default function Product() {
                         {/* NB video */}
                         <div className="section">
                             <div className={styles.sectionContainer}>
-                                <div style={{ maxWidth: '1400px'}}>
+                                <div style={{ }}>
                                     <ReactPlayer id='nbVideoId' config={{
                                         file: {
                                             attributes: {
@@ -319,7 +319,7 @@ export default function Product() {
                                                 muted: true
                                             }
                                         }
-                                    }} muted={true} width='100%' height='auto' url="videos/NB.mp4" playing={videoPlaying} style={{ pointerEvents: 'none' }} />
+                                    }} muted={true} width='100vw' height='100vh' url="videos/NB.mp4" playing={videoPlaying} style={{ pointerEvents: 'none' }} />
                                 </div>
                             </div>
                         </div>
@@ -327,8 +327,10 @@ export default function Product() {
                         {/* Contact US */}
                         <div className="section">
                             <div className={styles.sectionContainer}>
-                                <div style={{ position: 'relative' }}>
-                                    <Image src='/images/img_bg_contact.png' width={1920} height={947} />
+                                <div style={{ width: '100%', height: '100%', position: 'relative' }}>
+                                    <div style={{width: '100vw', height: '100vh'}}>
+                                        <Image src='/images/img_bg_contact.png' layout='fill' objectFit='fill' />
+                                    </div>
                                     <div className={styles.center} style={{ width: '100%', height: '100%', zIndex: 100, position: 'absolute', left: 0, top: 0 }}>
                                         <div className={styles.contactUsTitle}>
                                             CONTACT US
@@ -338,7 +340,7 @@ export default function Product() {
                                         </div>
 
                                         <div style={{ border: '1px solid #2ECC4F', padding: '6px 20px', color: '#0AFF3D', marginTop: '64px' }}>
-                                            友情链接 www.google.com
+                                            友情链接 <a href="http://www.imagepower.io">www.imagepower.io</a>
                                         </div>
 
                                         <div style={{ marginTop: '100px', display: 'flex', alignItems: 'center' }}>

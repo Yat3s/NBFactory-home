@@ -5,8 +5,9 @@ import NBHead from '../components/head'
 import ReactFullpage from '@fullpage/react-fullpage';
 import ReactPlayer from 'react-player';
 
-const startIndex = 3;
+const startIndex = 4;
 const stepPx = 360;
+let videoBoxPlaying = false;
 
 function onLeave(origin, destination, direction) {
   let reachingIndex = destination.index;
@@ -56,7 +57,6 @@ function onLeave(origin, destination, direction) {
 }
 
 
-
 function afterLoad(origin, destination, direction) {
   const loadIndex = destination.index;
 
@@ -64,6 +64,8 @@ function afterLoad(origin, destination, direction) {
     const videoElement = document.getElementById('homeVideoId').getElementsByTagName('video')[0];
     videoElement.setAttribute('data-autoplay', '')
     videoElement.play();
+    fadeIn('logo', 0, 'animate__slideInLeft');
+    fadeIn('slogan', 0, 'animate__slideInRight');
   }
 
   if (loadIndex == 1) {
@@ -78,6 +80,10 @@ function afterLoad(origin, destination, direction) {
   }
 
   if (loadIndex == 3) {
+    const videoElement = document.getElementById('boxVideoId').getElementsByTagName('video')[0];
+    videoElement.setAttribute('data-autoplay', '')
+    videoElement.play();
+    videoBoxPlaying = true;
   }
 }
 
@@ -146,8 +152,7 @@ export default function Home() {
         </div>
       </div>
 
-
-      <div id='cardPanel2' className={styles.cardPanel} style={{marginTop: '-720px', left: '160px' }}>
+      <div id='cardPanel2' className={styles.cardPanel} style={{ marginTop: '-720px', left: '160px' }}>
         <div className={styles.card} >
           <Image src='/images/card1.png' width={240} height={358}></Image>
         </div>
@@ -192,7 +197,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div id='cardPanel3' className={styles.cardPanel} style={{marginTop: '-120px', left: '440px' }}>
+      <div id='cardPanel3' className={styles.cardPanel} style={{ marginTop: '-120px', left: '440px' }}>
         <div className={styles.card} >
           <Image src='/images/card1.png' width={240} height={358}></Image>
         </div>
@@ -227,7 +232,7 @@ export default function Home() {
 
       <ReactFullpage
         scrollOverflow={true}
-        sectionsColor={["#081508", "#081508", "#081508", "#132B11", "#0F260E", "#0C210B", "#091C08", "#081807", "#061505"]}
+        sectionsColor={["#051403", "#081508", "#081508", "#081508", "#132B11", "#0F260E", "#0C210B", "#091C08", "#081807", "#061505"]}
         onLeave={onLeave.bind(this)}
         afterLoad={afterLoad.bind(this)}
         anchors={['Home', 'Mission', 'SuperLinkage', 'TBD']}
@@ -237,8 +242,6 @@ export default function Home() {
           return (
             <div id="fullpage-wrapper" >
 
-
-
               {/* NB 超级工厂 */}
               <div className="section section1">
                 <div style={{ height: '100%' }}>
@@ -246,8 +249,8 @@ export default function Home() {
                   </NBHead>
                   <div className={styles.sectionContainer}>
 
-                    <div style={{ maxWidth: '1200px', marginTop: '60px' }} className={styles.titleContainer}>
-                      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    <div style={{ maxWidth: '1200px', marginTop: '60px', width: '80%' }} className={styles.titleContainer}>
+                      <div id='logo' style={{ opacity: 0, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <div className={styles.logoContainer}>
                           <Image className={styles.logoImage} src='/images/logo_frame.png' width={320} height={88}></Image>
                           <div className={styles.logoText}>NB 超级工厂</div>
@@ -259,7 +262,7 @@ export default function Home() {
                       </div>
 
 
-                      <div className={styles.logoRightMenu} >
+                      <div id='slogan' style={{ opacity: 0 }} className={styles.logoRightMenu} >
                         <p>
                           塑造｜ 应用｜ 赋权
                         </p>
@@ -268,7 +271,7 @@ export default function Home() {
                         </p>
                       </div>
                     </div>
-                    <div style={{ maxWidth: '70%' }}>
+                    <div style={{ maxWidth: '1400px', marginTop: '40px' }}>
                       <ReactPlayer id='homeVideoId' config={{
                         file: {
                           attributes: {
@@ -276,7 +279,7 @@ export default function Home() {
                             muted: true
                           }
                         }
-                      }} muted={true} width='100%' height='auto' url="videos/home.mov" playing={true} style={{ pointerEvents: 'none' }} />
+                      }} muted={true} width='100%' height='80vh' url="videos/home.mp4" playing={true} style={{ pointerEvents: 'none' }} />
                     </div>
 
                   </div>
@@ -289,8 +292,8 @@ export default function Home() {
               <div className="section">
                 <div className={styles.sectionContainer}>
 
-                  <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <div id='missionImg' style={{ opacity: 0, width: '563px', height: '850px' }}>
+                  <div style={{ maxWidth: '1200px', width: '80%', display: 'flex', alignItems: 'center' }}>
+                    <div id='missionImg' style={{ opacity: 0, width: '480px', height: '760px' }}>
                       <Image src='/images/img_mission.png' layout='fill' objectFit='scale-down' ></Image>
                     </div>
 
@@ -306,8 +309,8 @@ export default function Home() {
                       </div>
 
                       <div id='missionContent' style={{ opacity: 0 }} >
-                        <div style={{}} className={styles.missionContent}>
-                          价值数据宇宙，人类未来全新的疆域，这是属于星舰FilNB的航程。超级工厂的任务是为生态成员提供更多有效算力，
+                        <div style={{ textAlign: 'justify', textJustify: 'inter-word' }} className={styles.missionContent}>
+                          价值数据宇宙，人类未来全新的疆域，这是属于星舰FilNB的航程。 超级工厂的任务是为生态成员提供更多有效算力，<br />
                           肯定.赋能.链接每一有效存储，加速世界向web3.0时代过渡。持续生产持续创造，奋力挣脱大地粗暴的束缚，坚勇航向前人所未至的文明，去触摸造物主温柔的脸庞，去实现生命体对美、对好奇心的想象。
                         </div>
 
@@ -325,7 +328,7 @@ export default function Home() {
               {/* Super Linkage */}
               <div className="section">
                 <div style={{ position: 'relative', height: '100%' }} className={styles.sectionContainer}>
-                  <div id='linkageContent' style={{ opacity: 0, maxWidth: '1200px', }}>
+                  <div id='linkageContent' style={{ opacity: 0, maxWidth: '1200px', width: '80%' }}>
                     <div style={{ padding: '2px 8px', backgroundColor: '#033915', width: 'fit-content' }}>
                       CHAO JI LIAN DONG
                     </div>
@@ -342,7 +345,7 @@ export default function Home() {
                     <div style={{ width: '80px', height: '8px', backgroundColor: '#2ECC4F', marginTop: '16px' }} />
 
                     <p style={{ marginTop: '80px', lineHeight: '40px', fontSize: '20px' }}>
-                      超级工厂下设六大品牌，愿景以NB作为可实现的超强算力计数单位，孵化、支持顶尖的「帮助人类实现可持续化发展的数据」项目， 最终实现人类从现实世界到交互世界的「价值升级」工程。
+                      超级工厂下设六大品牌，愿景以NB作为可实现的超强算力计数单位，孵化、支持顶尖的「帮助人类实现可持续化发展的数据」项目，<br /> 最终实现人类从现实世界到交互世界的「价值升级」工程。
                       <p>
                         利用强大的供应链网络、领先的资源融合速度与丰富投资组合经验，我们将为共创者提供更富远见的洞察力。
                       </p>
@@ -351,6 +354,22 @@ export default function Home() {
 
                   <div id='linkageImg' style={{ opacity: 0, position: 'absolute', bottom: '0', }}>
                     <Image src='/images/img_superlinkage.png' height={216} width={1920}></Image>
+                  </div>
+                </div>
+              </div>
+
+              {/* Box video */}
+              <div className="section">
+                <div className={styles.sectionContainer}>
+                  <div style={{ width: '80%' }}>
+                    <ReactPlayer id='boxVideoId' config={{
+                      file: {
+                        attributes: {
+                          autoPlay: true,
+                          muted: true
+                        }
+                      }
+                    }} muted={true} width='100%' height='auto' url="videos/box.mp4" playing={videoBoxPlaying} style={{ pointerEvents: 'none' }} />
                   </div>
                 </div>
               </div>
