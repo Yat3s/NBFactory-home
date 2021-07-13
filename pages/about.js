@@ -56,19 +56,16 @@ function onLeave(origin, destination, direction) {
         videoNB4Playing = true;
         playVideoWhenReachingSection('nb4VideoId');
     }
-    if (reachingIndex == 6) {
+    if (reachingIndex == 7) {
         astronomicalPlaying = true;
         playVideoWhenReachingSection('astronomical');
     }
-    if (reachingIndex == 7) {
-        sinsoPlaying = true;
-        playVideoWhenReachingSection('sinso');
-    }
-    if (reachingIndex == 8) {
+
+    if (reachingIndex == 9) {
         ipgroupPlaying = true;
         playVideoWhenReachingSection('ipgroup');
     }
-    if (reachingIndex == 9) {
+    if (reachingIndex == 10) {
         banbikPlaying = true;
         playVideoWhenReachingSection('banbik');
     }
@@ -92,7 +89,9 @@ function afterLoad(origin, destination, direction) {
         appearWithAnimation('profileContent', 200, 'animate__fadeInUp')
     }
 
-    if (loadIndex == 1) {
+    if (loadIndex == 8) {
+        sinsoPlaying = true;
+        playVideoWhenReachingSection('sinso');
     }
 }
 

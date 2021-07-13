@@ -34,17 +34,17 @@ function onLeave(origin, destination, direction) {
   const cardPanel1 = document.getElementById('cardPanel1');
   cardPanel1.style.transition = transition;
   cardPanel1.style.opacity = opacity;
-  cardPanel1.style.top = top == -1 ? '200%' : parseInt(top * 1.5) + 'px';
+  cardPanel1.style.marginTop = top == -1 ? '200%' : (parseInt(top * 1.5) - 1120) + 'px';
 
   const cardPanel2 = document.getElementById('cardPanel2');
   cardPanel2.style.transition = transition;
   cardPanel2.style.opacity = opacity;
-  cardPanel2.style.top = top == -1 ? '200%' : parseInt(top * 2) + 'px';
+  cardPanel2.style.marginTop = top == -1 ? '200%' : (parseInt(top * 2) - 720) + 'px';
 
   const cardPanel3 = document.getElementById('cardPanel3');
   cardPanel3.style.transition = transition;
   cardPanel3.style.opacity = opacity;
-  cardPanel3.style.top = top == -1 ? '200%' : top + 'px';
+  cardPanel3.style.marginTop = top == -1 ? '200%' : (top - 120) + 'px';
 
   const highlightCards = cardPanel3.childNodes;
   for (const [idx, card] of highlightCards.entries()) {
@@ -107,128 +107,132 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div id='cardPanel1' className={styles.cardPanel} style={{ marginTop: '-1120px', left: '-120px' }}>
-        <div className={styles.card} >
-          <Image src='/images/card1.png' width={240} height={358}></Image>
+      <div id='cardContainer' style={{ display: 'flex', position: 'absolute', zIndex: 1 }}>
+        <div id='cardPanel1' className={styles.cardPanel} style={{ marginLeft: '-5vw' }}>
+          <div className={styles.card} >
+            <Image src='/images/card1.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card2.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card3.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card4.png' width={240} height={330}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card5.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card6.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card7.png' width={240} height={730}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card1.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card2.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card3.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card4.png' width={240} height={330}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card5.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card6.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card7.png' width={240} height={730}></Image>
+          </div>
         </div>
-        <div className={styles.card} >
-          <Image src='/images/card2.png' width={240} height={358}></Image>
+
+        <div id='cardPanel2' className={styles.cardPanel} style={{ marginLeft: '1.5vw' }}>
+          <div className={styles.card} >
+            <Image src='/images/card1.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card2.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card3.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card4.png' width={240} height={330}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card5.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card6.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card7.png' width={240} height={730}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card1.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card2.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card3.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card4.png' width={240} height={330}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card5.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card6.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card7.png' width={240} height={730}></Image>
+          </div>
         </div>
-        <div className={styles.card} >
-          <Image src='/images/card3.png' width={240} height={358}></Image>
+
+        <div id='cardPanel3' className={styles.cardPanel} style={{ marginLeft: '1.5vw' }}>
+          <div className={styles.card} >
+            <Image src='/images/card1.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card2.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card3.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card4.png' width={240} height={330}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card5.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card6.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card7.png' width={240} height={730}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card1.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card2.png' width={240} height={358}></Image>
+          </div>
+          <div className={styles.card} >
+            <Image src='/images/card3.png' width={240} height={358}></Image>
+          </div>
         </div>
-        <div className={styles.card} >
-          <Image src='/images/card4.png' width={240} height={330}></Image>
-        </div>
-        <div className={styles.card} >
-          <Image src='/images/card5.png' width={240} height={358}></Image>
-        </div>
-        <div className={styles.card} >
-          <Image src='/images/card6.png' width={240} height={358}></Image>
-        </div>
-        <div className={styles.card} >
-          <Image src='/images/card7.png' width={240} height={730}></Image>
-        </div>
-        <div className={styles.card} >
-          <Image src='/images/card1.png' width={240} height={358}></Image>
-        </div>
-        <div className={styles.card} >
-          <Image src='/images/card2.png' width={240} height={358}></Image>
-        </div>
-        <div className={styles.card} >
-          <Image src='/images/card3.png' width={240} height={358}></Image>
-        </div>
-        <div className={styles.card} >
-          <Image src='/images/card4.png' width={240} height={330}></Image>
-        </div>
-        <div className={styles.card} >
-          <Image src='/images/card5.png' width={240} height={358}></Image>
-        </div>
-        <div className={styles.card} >
-          <Image src='/images/card6.png' width={240} height={358}></Image>
-        </div>
-        <div className={styles.card} >
-          <Image src='/images/card7.png' width={240} height={730}></Image>
-        </div>
+
       </div>
 
-      <div id='cardPanel2' className={styles.cardPanel} style={{ marginTop: '-720px', left: '160px' }}>
-        <div className={styles.card} >
-          <Image src='/images/card1.png' width={240} height={358}></Image>
-        </div>
-        <div className={styles.card} >
-          <Image src='/images/card2.png' width={240} height={358}></Image>
-        </div>
-        <div className={styles.card} >
-          <Image src='/images/card3.png' width={240} height={358}></Image>
-        </div>
-        <div className={styles.card} >
-          <Image src='/images/card4.png' width={240} height={330}></Image>
-        </div>
-        <div className={styles.card} >
-          <Image src='/images/card5.png' width={240} height={358}></Image>
-        </div>
-        <div className={styles.card} >
-          <Image src='/images/card6.png' width={240} height={358}></Image>
-        </div>
-        <div className={styles.card} >
-          <Image src='/images/card7.png' width={240} height={730}></Image>
-        </div>
-        <div className={styles.card} >
-          <Image src='/images/card1.png' width={240} height={358}></Image>
-        </div>
-        <div className={styles.card} >
-          <Image src='/images/card2.png' width={240} height={358}></Image>
-        </div>
-        <div className={styles.card} >
-          <Image src='/images/card3.png' width={240} height={358}></Image>
-        </div>
-        <div className={styles.card} >
-          <Image src='/images/card4.png' width={240} height={330}></Image>
-        </div>
-        <div className={styles.card} >
-          <Image src='/images/card5.png' width={240} height={358}></Image>
-        </div>
-        <div className={styles.card} >
-          <Image src='/images/card6.png' width={240} height={358}></Image>
-        </div>
-        <div className={styles.card} >
-          <Image src='/images/card7.png' width={240} height={730}></Image>
-        </div>
-      </div>
-
-      <div id='cardPanel3' className={styles.cardPanel} style={{ marginTop: '-120px', left: '440px' }}>
-        <div className={styles.card} >
-          <Image src='/images/card1.png' width={240} height={358}></Image>
-        </div>
-        <div className={styles.card} >
-          <Image src='/images/card2.png' width={240} height={358}></Image>
-        </div>
-        <div className={styles.card} >
-          <Image src='/images/card3.png' width={240} height={358}></Image>
-        </div>
-        <div className={styles.card} >
-          <Image src='/images/card4.png' width={240} height={330}></Image>
-        </div>
-        <div className={styles.card} >
-          <Image src='/images/card5.png' width={240} height={358}></Image>
-        </div>
-        <div className={styles.card} >
-          <Image src='/images/card6.png' width={240} height={358}></Image>
-        </div>
-        <div className={styles.card} >
-          <Image src='/images/card7.png' width={240} height={730}></Image>
-        </div>
-        <div className={styles.card} >
-          <Image src='/images/card1.png' width={240} height={358}></Image>
-        </div>
-        <div className={styles.card} >
-          <Image src='/images/card2.png' width={240} height={358}></Image>
-        </div>
-        <div className={styles.card} >
-          <Image src='/images/card3.png' width={240} height={358}></Image>
-        </div>
-      </div>
 
       <ReactFullpage
         scrollOverflow={true}
@@ -279,7 +283,7 @@ export default function Home() {
                             muted: true
                           }
                         }
-                      }} muted={true} width='100%' height='80vh' url="videos/home.mp4" playing={true} style={{ pointerEvents: 'none' }} />
+                      }} muted={true} width='100%' height='70vh' url="videos/home.mp4" playing={true} style={{ pointerEvents: 'none' }} />
                     </div>
 
                   </div>
@@ -361,7 +365,7 @@ export default function Home() {
               {/* Box video */}
               <div className="section">
                 <div className={styles.sectionContainer}>
-                  <div style={{ width: '80%' }}>
+                  <div style={{ width: '80%', padding: '120px' }}>
                     <ReactPlayer id='boxVideoId' config={{
                       file: {
                         attributes: {
@@ -376,7 +380,7 @@ export default function Home() {
 
 
               <div className="section">
-                <div style={{ marginLeft: '600px' }} className={styles.sectionContainer}>
+                <div style={{ marginLeft: '28vw' }} className={styles.sectionContainer}>
                   <div>
                     <div id='cardPageTitle1' className={styles.cardPageTitle}>
                       供应链<span style={{ color: '#2ECC4F' }}>金融</span>
@@ -395,7 +399,7 @@ export default function Home() {
 
 
               <div className="section">
-                <div style={{ marginLeft: '600px' }} className={styles.sectionContainer}>
+                <div style={{ marginLeft: '28vw' }} className={styles.sectionContainer}>
                   <div>
                     <div id='cardPageTitle2' className={styles.cardPageTitle}>
                       <span style={{ color: '#2ECC4F' }}>技术</span>服务商
@@ -412,7 +416,7 @@ export default function Home() {
               </div>
 
               <div className="section">
-                <div style={{ marginLeft: '600px' }} className={styles.sectionContainer}>
+                <div style={{ marginLeft: '28vw' }} className={styles.sectionContainer}>
                   <div>
                     <div id='cardPageTitle3' className={styles.cardPageTitle}>
                       超级<span style={{ color: '#2ECC4F' }}>基金会</span>
@@ -429,7 +433,7 @@ export default function Home() {
               </div>
 
               <div className="section">
-                <div style={{ marginLeft: '600px' }} className={styles.sectionContainer}>
+                <div style={{ marginLeft: '28vw' }} className={styles.sectionContainer}>
                   <div>
                     <div id='cardPageTitle4' className={styles.cardPageTitle}>
                       <span style={{ color: '#2ECC4F' }}>超级</span>实验室
@@ -449,7 +453,7 @@ export default function Home() {
               </div>
 
               <div className="section">
-                <div style={{ marginLeft: '600px' }} className={styles.sectionContainer}>
+                <div style={{ marginLeft: '28vw' }} className={styles.sectionContainer}>
                   <div>
                     <div id='cardPageTitle5' className={styles.cardPageTitle}>
                       超级<span style={{ color: '#2ECC4F' }}>社区家</span>
@@ -467,7 +471,7 @@ export default function Home() {
               </div>
 
               <div className="section">
-                <div style={{ marginLeft: '600px' }} className={styles.sectionContainer}>
+                <div style={{ marginLeft: '28vw' }} className={styles.sectionContainer}>
                   <div>
                     <div id='cardPageTitle6' className={styles.cardPageTitle}>
                       <span style={{ color: '#2ECC4F' }}>数字</span>IP版权

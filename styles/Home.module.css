@@ -109,18 +109,18 @@
 }
 
 .card {
-  margin-bottom: 40px;
+  margin-bottom: 1.5vw;
   filter: brightness(30%);
   transition: all 1s ease;
+  max-width: 240px;
+  width: 10vw;
 }
 
 .cardPanel {
-  position: absolute;
   display: flex;
   flex-direction: column;
-  top: 200%;
-  z-index: 1;
   transition: all 500ms ease;
+  margin-top: 200%;
 }
 
 .cardPageTitle {
