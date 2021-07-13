@@ -70,7 +70,7 @@ function onLeave(origin, destination, direction) {
         playVideoWhenReachingSection('banbik');
     }
 
-    console.log("Leaving section " + videoNB1Playing);
+    console.log("Leaving section " + reachingIndex);
 }
 
 function playVideoWhenReachingSection(videoId) {
@@ -189,7 +189,7 @@ export default function About() {
                                                 muted: true
                                             }
                                         }
-                                    }} muted={true} width='100%' height='auto' url="videos/supply_1.mp4" playing={videoNB1Playing} style={{ pointerEvents: 'none' }} />
+                                    }} muted={true} width='100vw' height='100vh' url="videos/supply_1.mp4" playing={videoNB1Playing} style={{ pointerEvents: 'none' }} />
                                 </div>
                             </div>
                         </div>
@@ -204,7 +204,7 @@ export default function About() {
                                                 muted: true
                                             }
                                         }
-                                    }} muted={true} width='100%' height='auto' url="videos/supply_2.mp4" playing={videoNB2Playing} style={{ pointerEvents: 'none' }} />
+                                    }} muted={true} width='100vw' height='100vh' url="videos/supply_2.mp4" playing={videoNB2Playing} style={{ pointerEvents: 'none' }} />
                                 </div>
                             </div>
                         </div>
@@ -219,7 +219,7 @@ export default function About() {
                                                 muted: true
                                             }
                                         }
-                                    }} muted={true} width='100%' height='auto' url="videos/supply_3.mp4" playing={videoNB3Playing} style={{ pointerEvents: 'none' }} />
+                                    }} muted={true} width='100vw' height='100vh' url="videos/supply_3.mp4" playing={videoNB3Playing} style={{ pointerEvents: 'none' }} />
                                 </div>
                             </div>
                         </div>
@@ -234,14 +234,14 @@ export default function About() {
                                                 muted: true
                                             }
                                         }
-                                    }} muted={true} width='100%' height='auto' url="videos/supply_4.mp4" playing={videoNB4Playing} style={{ pointerEvents: 'none' }} />
+                                    }} muted={true} width='100vw' height='100vh' url="videos/supply_4.mp4" playing={videoNB4Playing} style={{ pointerEvents: 'none' }} />
                                 </div>
                             </div>
                         </div>
 
                         <div className="section">
                             <div className={styles.sectionContainer}>
-                                <Lottie isStopped={animGrowthStop} options={growthLottieOptions} isClickToPauseDisabled></Lottie>
+                                <Lottie height='100vh' width='100vw' isStopped={animGrowthStop} options={growthLottieOptions} isClickToPauseDisabled></Lottie>
                             </div>
                         </div>
 
