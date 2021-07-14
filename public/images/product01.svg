@@ -100,8 +100,7 @@
                     <tspan x="361.407939" y="457.969326">(最终数据)</tspan>
                 </text>
                 <text id="（云GPU）" font-family="PingFangSC-Regular, PingFang SC" font-size="15.0209202" font-weight="normal" line-spacing="30.0418403" fill="#FFFFFF">
-                    <tspan x="244.77511" y="227.002942">（云</tspan>
-                    <tspan x="236.483562" y="257.044782">GPU）</tspan>
+                    <tspan x="221.468607" y="227.002942">（云GPU）</tspan>
                 </text>
                 <text id="存储集群最终数据" font-family="PingFangSC-Regular, PingFang SC" font-size="15.0209202" font-weight="normal" line-spacing="30.0418403" fill="#FFFFFF">
                     <tspan x="449.371829" y="267.873747">存储集群最终数据</tspan>
